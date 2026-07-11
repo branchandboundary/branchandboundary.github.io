@@ -257,7 +257,6 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 .modal-full { color: var(--soil); font-size: 0.95rem; }
 .modal-further { font-size: 0.85rem; color: var(--slate-green); margin: 1rem 0; padding-top: 0.6rem; border-top: 1px solid var(--line-soft); }
 .modal-further a { color: var(--slate-green); }
-.modal-flags { font-size: 0.82rem; font-style: italic; color: var(--soil); opacity: 0.8; margin-top: 0.8rem; }
 .modal-source { font-size: 0.78rem; color: var(--soil); opacity: 0.75; margin-top: 0.8rem; padding-top: 0.6rem; border-top: 1px solid var(--line-soft); }
 .modal-closing { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; color: var(--rust-dark); margin-top: 1rem; }
 

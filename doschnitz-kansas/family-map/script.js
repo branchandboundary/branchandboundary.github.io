@@ -180,7 +180,7 @@
     // journey — nobody in the story physically went there.
     if (nextCard.insetOnly) { goToIndex(nextIdx); return; }
 
-    const origin = lastRealCard(bCards, idx);
+    const origin = nextCard.embarkPoint || lastRealCard(bCards, idx);
     if (!origin) { goToIndex(nextIdx); return; }
 
     const miles = haversineMiles(origin.lat, origin.lng, nextCard.lat, nextCard.lng);
@@ -284,6 +284,8 @@
     return oceanSide(origin.lng) !== oceanSide(dest.lng) ? "ship" : "rail";
   }
 
+  function captionLabel(point) { return point.arrivalLabel || point.place; }
+
   function animateJourney(origin, dest, onDone) {
     const mode = journeyMode(origin, dest);
     const miles = Math.round(haversineMiles(origin.lat, origin.lng, dest.lat, dest.lng));
@@ -291,7 +293,7 @@
     const label = mode === "ship" ? "Transatlantic crossing" : "Overland journey";
 
     journeyIconEl.textContent = icon;
-    journeyTextEl.textContent = `${label} — ${origin.place} to ${dest.place} (~${miles.toLocaleString()} mi)`;
+    journeyTextEl.textContent = `${label} — ${captionLabel(origin)} to ${captionLabel(dest)} (~${miles.toLocaleString()} mi)`;
     journeyOverlayEl.classList.add("is-active");
     journeyOverlayEl.setAttribute("aria-hidden", "false");
     document.body.classList.add("journey-active");
@@ -360,15 +362,15 @@
 
     const descEl = document.getElementById("modal-desc");
     descEl.innerHTML = applyCrossRefs(card.desc, card.crossRefs);
-    document.getElementById("modal-full").textContent = card.full || "";
+    document.getElementById("modal-full").innerHTML = card.full || "";
 
     const furtherEl = document.getElementById("modal-further");
     if (card.furtherReading && card.furtherReading.length) {
       furtherEl.innerHTML = "Further reading: " + card.furtherReading.map(f => `<a href="${f.url}" target="_blank" rel="noopener">${f.label}</a>`).join(" · ");
     } else furtherEl.innerHTML = "";
 
-    const flagsEl = document.getElementById("modal-flags");
-    flagsEl.textContent = card.flags ? "Note: " + card.flags : "";
+    // Note: card.flags (sourcing caveats, open questions) is intentionally
+    // not rendered — it's editorial/research metadata, not visitor-facing content.
 
     document.getElementById("modal-source").textContent = "Source: " + card.source;
     document.getElementById("modal-closing").textContent = card.closingLine || "";

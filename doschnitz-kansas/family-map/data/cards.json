@@ -7,10 +7,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Is born in Döschnitz, a small Thuringian forest village, the only son of Johann Nikol Bock (Laborant and Gutsbesitzer — landowner) and his wife Maria (e gente Bockiana — possibly herself a Bock by birth).",
-    "full": "Johann Nikol was one of only 29 licensed Laboranten — makers of laboratory-produced herbal remedies, distinct from the traveling Buckelapotheker who sold them — across the entire principality of Schwarzburg-Rudolstadt as of an 1805 census, licensed by the Schwarzburg state at Königsee. Combined with his landholding, this placed the family among perhaps a dozen leading households in the village.",
+    "desc": "Is born in Döschnitz, a small Thuringian forest village, the only son of Johann Nikol Bock (<em>Laborant</em> and <em>Gutsbesitzer</em> — landowner) and his wife Maria (<em>e gente Bockiana</em> — possibly herself a Bock by birth).",
+    "full": "Johann Nikol was one of only 29 licensed <em>Laboranten</em> — makers of laboratory-produced herbal remedies, distinct from the traveling <em>Buckelapotheker</em> who sold them — across the entire principality of Schwarzburg-Rudolstadt as of an 1805 census, licensed by the Schwarzburg state at Königsee. Combined with his landholding, this placed the family among perhaps a dozen leading households in the village.",
     "source": "Dissertation Curriculum Vitae, 1830; funeral register, 1855; \"Thüringer Industrie,\" Wikisource (1805 census figures)",
-    "flags": "Mother's maiden connection to the Bock family remains an open question — no independent record confirms it beyond Gottlob's own statement.",
+    "flags": "Mother's maiden connection to the Bock family (e gente Bockiana) remains an open question in the sense that no independent record confirms it beyond Gottlob's own statement — but the baptism-record search itself is closed; his dissertation is treated as sufficient primary-source corroboration for birthplace and parentage.",
     "images": [],
     "isFirst": true
   },
@@ -22,8 +22,8 @@
     "place": "Rudolstadt",
     "lat": 50.7167,
     "lng": 11.3333,
-    "desc": "Is sent to the Gymnasium at Rudolstadt, age 14, for five years — a classical secondary school preparing students in Latin, Greek, and the humanities as the standard pathway into university study in the German states.",
-    "full": "In his own words, the school was then \"flourishing\" under named teachers Hesse, Voss, Göttling, and others.",
+    "desc": "Is sent to the Gymnasium at Rudolstadt, age 14, for five years — a classical secondary school preparing students in Latin, Greek, and the humanities as the standard pathway into university study in the German states. In his own words, the school was then \"flourishing\" under named teachers Hesse, Voss, Göttling, and others.",
+    "full": "",
     "source": "Dissertation Curriculum Vitae",
     "flags": "",
     "images": []
@@ -36,10 +36,10 @@
     "place": "Leipzig",
     "lat": 51.3397,
     "lng": 12.3731,
-    "desc": "Matriculates at the University of Leipzig, where he lives near relatives (cognati) — the dissertation doesn't specify who. Studies logic/metaphysics, botany, anatomy, chemistry, physics over roughly a year and a half.",
+    "desc": "Matriculates at the University of Leipzig, where he lives near relatives (<em>cognati</em>) — the dissertation doesn't specify who, so the nature of this family tie is unknown. Studies logic/metaphysics, botany, anatomy, chemistry, physics over roughly a year and a half.",
     "full": "His logic and metaphysics instructor at Leipzig was Wilhelm Traugott Krug, who had succeeded Immanuel Kant himself in the chair of logic and metaphysics at Königsberg in 1804, before moving to the Leipzig philosophy chair he held from 1809 until his death in 1842.",
-    "source": "Dissertation Curriculum Vitae; Wikipedia and multiple period biographical encyclopedias on Wilhelm Traugott Krug",
-    "flags": "Nature of the Leipzig family tie unknown.",
+    "source": "Dissertation Curriculum Vitae; Wikipedia and multiple period biographical encyclopedias (New International Encyclopædia; 1911 Encyclopædia Britannica) on Wilhelm Traugott Krug, cross-checked independently of the dissertation",
+    "flags": "Nature of the Leipzig family tie unknown",
     "images": []
   },
   {
@@ -50,14 +50,14 @@
     "place": "Jena",
     "lat": 50.9271,
     "lng": 11.5892,
-    "desc": "Transfers to the University of Jena to complete his medical training: anatomy, pharmacy, pharmacology, pathology and therapeutics, eye diseases and surgery, obstetrics, and prescription-writing, plus three semesters of clinical courses.",
-    "full": "In his own words, from the dissertation's autobiographical section: he wielded the anatomical knife in the university's anatomical theater — confirming he personally performed dissection work, not merely observed it.",
+    "desc": "Transfers to the University of Jena to complete his medical training, studying anatomy, pharmacy, pharmacology, pathology and therapeutics, eye diseases and surgery (general and special), obstetrics, and medical prescription-writing, along with three semesters of medico-surgical clinical courses.",
+    "full": "In his own words, from the dissertation's autobiographical section: \"I wielded the anatomical knife\" in the university's anatomical theater — confirming he personally performed dissection work as part of his training, not merely observed it. He also studied practical obstetrics.",
     "source": "Dissertation Curriculum Vitae",
     "flags": "",
     "images": [
       {
         "file": "../shared/images/IMG_3916.gif",
-        "caption": "Historical view of the University of Jena, 1848 (Wikimedia Commons, public domain)",
+        "caption": "Historical view of the University of Jena, 1848 (Wikimedia Commons, \"Universität Jena, 1848\" — public domain)",
         "ai": false
       }
     ]
@@ -70,14 +70,14 @@
     "place": "Jena",
     "lat": 50.9271,
     "lng": 11.5892,
-    "desc": "Defends Latin dissertation De radice ipecacuanhae, dedicated to court physician Ernst Friedrich Conradi; becomes Doctor medicinae et chirurgiae, certifying him to both diagnose/prescribe and perform surgery.",
-    "full": "Where his father Johann Nikol had practiced as a licensed Laborant, Gottlob's degree places him within the emerging system of university-trained, state-credentialed physicians. His dissertation is cited almost 100 years later in Tschirch's Handbuch der Pharmakognosie (1923), the definitive German pharmacognosy reference of its era.",
+    "desc": "Defends Latin dissertation <em>De radice ipecacuanhae</em>, dedicated to court physician Ernst Friedrich Conradi; becomes Doctor medicinae et chirurgiae — the combined degree that certifies him to both diagnose/prescribe as a physician and perform surgery, the two branches of medical practice licensed separately in many German states at the time.",
+    "full": "Where his father Johann Nikol had practiced as a licensed <em>Laborant</em>, preparing remedies within an older herbal-craft tradition, Gottlob's degree places him instead within the emerging system of university-trained, state-credentialed physicians reshaping German medicine in the early 19th century. Gottlob's dissertation goes on to be cited as standing scholarly literature in Strumpf's <em>Systematisches Handbuch der Arzneimittellehre</em> (1855), and — almost 100 years after publication — in Tschirch's <em>Handbuch der Pharmakognosie</em> (1923), the definitive German-language pharmacognosy reference of its era, which listed it among the canonical older dissertations on ipecacuanha.",
     "source": "Bock, 1830; K10plus PPN 172738369; Strumpf, 1855; Tschirch, 1923",
     "flags": "",
     "images": [
       {
         "file": "../shared/images/Title_page_of_Johann_Gottlob_Bock_s_Doctoral_Dissertation.jpg",
-        "caption": "Title page, doctoral dissertation, Jena, 1830",
+        "caption": "Title page, Johann Gottlob's doctoral dissertation, *Dissertatio Inauguralis Medica de Radice Ipecacuanhae*, Jena, 1830",
         "ai": false
       }
     ]
@@ -90,10 +90,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Marries Johanne Wilhelmine Jacobine Theresia Eberhardt (1810–1870), fourth daughter of Johann Ludwig Eberhardt, a propertied Bürger of Gräfinau.",
-    "full": "Theresia came from Gräfinau, at the opposite end of the principality of Schwarzburg-Rudolstadt from Döschnitz — the two villages separated by something like a day's hard travel through forested upland. How the two families connected across that distance is not established.",
-    "source": "Archion: Gräfinau-Angstedt, Trauungen 1826–1876, entry 3/1832; Döschnitz-Meura, Beerdigungen 1861–1890, Bild 55",
-    "flags": "Birth year (1810) is calculated from age-at-death, not a located baptismal record.",
+    "desc": "Marries Johanne Wilhelmine Jacobine Theresia Eberhardt (1810–1870), fourth daughter of Johann Ludwig Eberhardt, a propertied <em>Mitnachbar und Bürger</em> (full village citizen) of Gräfinau.",
+    "full": "Theresia came from Gräfinau, at the opposite end of the principality of Schwarzburg-Rudolstadt from Döschnitz — the two villages separated by something like a day's hard travel through forested upland. How the two families connected across that distance is not established; possibilities include a link through Johann Gottlob's time at Jena, a professional or commercial tie through one of the regional fairs, or an as-yet-unidentified family contact.",
+    "source": "Archion: Gräfinau-Angstedt, Trauungen 1826–1876, entry 3/1832 (marriage record — father's status, birth order); Archion: Döschnitz-Meura, Beerdigungen 1861–1890, Bild 55, entry 22/1870 (death record — age at death, from which birth year is calculated)",
+    "flags": "Birth year (1810) is calculated from age-at-death, not from a located baptismal record. The \"opposite ends of the principality\" distance and the unresolved question of how the families connected is informed geographic/narrative inference, not itself document-sourced.",
     "images": [],
     "secondaryPin": {
       "lat": 50.6667,
@@ -110,9 +110,9 @@
     "lat": 50.6167,
     "lng": 11.2333,
     "desc": "Practices medicine in the village for 23 years, the only credentialed physician in the valley.",
-    "full": "As the sole Doctor medicinae et chirurgiae in a village of perhaps 400–600 people, Gottlob is almost certainly called out for births, deaths, accidents, and epidemic illness across Döschnitz, Meura, and surrounding hamlets. Before the introduction of ether anesthesia in 1846, his surgical work was performed on fully conscious patients.",
-    "source": "Archion: Döschnitz-Meura, Beerdigungen 1822–1860; Bock, 1830; Wikipedia: History of general anesthesia",
-    "flags": "Geographic extent of practice is informed inference, not documented specifically for Gottlob.",
+    "full": "As the sole <em>Doctor medicinae et chirurgiae</em> in a village of perhaps 400–600 people, Gottlob is almost certainly called out for births, deaths, accidents, and epidemic illness not only in Döschnitz but across neighboring Meura and the surrounding hamlets, since most rural Schwarzburg villages of the period have no resident doctor of their own and rely instead on wandering herbal-remedy peddlers, the local midwife, or an occasional visiting town physician. His <em>chirurgiae</em> training brings him fractures, dislocations, abscesses, and — before the introduction of ether anesthesia in 1846 — surgery performed on fully conscious patients. Obstetric intervention, including forceps deliveries, also falls to him as the only credentialed practitioner for miles.",
+    "source": "Archion: Döschnitz-Meura, Beerdigungen 1822–1860 (funeral register, profession line); Bock, 1830 (dissertation, credential); Wikipedia: History of general anesthesia",
+    "flags": "Geographic extent of practice area and specific patient obligations are informed inference from general patterns of rural German village medicine in this period, not documented specifically for Gottlob. No source confirms a formal poor-relief physician obligation applied to him.",
     "images": []
   },
   {
@@ -123,7 +123,7 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Eight children are born to Gottlob and Theresia: Bertha (1833), Eduard (1834, d. infancy), Aurora (1836), Robert (1840), unnamed twins (1841, d. infancy), Ottomar (1845), Gustav (1848).",
+    "desc": "Eight children are born to Gottlob and Theresia: Bertha (1833), Eduard (1834, d. infancy), Aurora (1836), Robert (1840), unnamed twins (1841, d. infancy — two separate infants), Ottomar (1845), Gustav (1848).",
     "full": "",
     "source": "Baptismal records, Döschnitz-Meura",
     "flags": "",
@@ -149,10 +149,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Dies age 50 of a stomach ailment (Magenkrankheit), reportedly accompanied by fever (\"mortuus erat a febribus\"); buried 16 Feb.",
-    "full": "Unlike his father Johann Nikol, whose wealth existed in land and licensed recipes, Gottlob's primary asset was his medical practice itself — capital that vanishes the moment he dies. Theresia is left a widow with five surviving children, ages 6 to 22, none yet married.",
-    "source": "Archion: Döschnitz-Meura, Beerdigungen 1822–1860, Bild 126; Trauungen 1822–1875, Bild 81 and Bild 74",
-    "flags": "Cause-of-death word read with moderate confidence; supersedes an earlier 'Magenkrebs' (stomach cancer) transcription.",
+    "desc": "Dies age 50 of a stomach ailment (<em>Magenkrankheit</em>), reportedly accompanied by fever (\"<em>mortuus erat a febribus</em>\" — \"he had died from fevers\"); buried 16 Feb.",
+    "full": "Unlike his father Johann Nikol, whose wealth exists in land, stills, and licensed recipes — assets that could be inherited — Gottlob's primary asset is his medical practice itself, a form of capital that vanishes the moment he dies. The household's professional income ends instantly, leaving Theresia a widow with five surviving children ranging in age from 6 (Gustav) to 22 (Bertha), none yet married. Bertha and Aurora will marry in 1857 and 1856, respectively; Robert will leave for Erfurt by 1862.",
+    "source": "Archion: Döschnitz-Meura, Beerdigungen 1822–1860, Bild 126 (death, burial, age); Archion: Döschnitz-Meura, Trauungen 1822–1875, Bild 81 (Bertha's marriage to Johann Heinrich Gottlob Louis Heissler, 6 Sep 1857); Archion: Döschnitz-Meura, Trauungen 1822–1875, Bild 74 (Aurora's marriage to August Theodor Christian Neubeck, 13 Apr 1856)",
+    "flags": "German cause-of-death word read with moderate confidence — the \"-heit\" ending is fairly clear, but the full word is not certain; the Latin line is read with higher confidence. This reading supersedes an earlier \"Magenkrebs\" (stomach cancer) transcription used elsewhere in project materials. The \"vanishing capital\"/income-loss framing is narrative interpretation, not itself a sourced document.",
     "images": [],
     "closingLine": "Theresia raises five children alone for the next fifteen years. Two of them, Robert and Ottomar, carry the family to Kansas — their stories continue in the tabs above."
   },
@@ -165,8 +165,8 @@
     "lat": 50.6167,
     "lng": 11.2333,
     "desc": "Is born in Döschnitz, christened Emil Robert — the fourth of eight children of Dr. Johann Gottlob Bock and Theresia (née Eberhardt).",
-    "full": "Robert grows up in the household his father maintains as the valley's only credentialed physician (A7), and is 14 when his father dies in 1855 (A9). In the United States he goes by his Rufname, \"Robert\" — the name he uses on his naturalization papers, homestead file, and the 1875 Kansas census.",
-    "source": "Baptismal record, Döschnitz-Meura; naturalization declaration and certificate, Monroe Co., NY; Homestead Application No. 6934",
+    "full": "Robert grows up in the same household his father maintains as the valley's only credentialed physician, and is 14 when his father dies in 1855. In the United States, he will go by his Rufname — his second given name, \"Robert\" — and that is how he will legally identify himself throughout his American life: on his naturalization papers, his homestead file, and the 1875 Kansas census.",
+    "source": "Baptismal record, Döschnitz-Meura; naturalization declaration and certificate, Monroe Co., NY; Homestead Application No. 6934 file",
     "flags": "",
     "images": [],
     "isFirst": true
@@ -180,31 +180,37 @@
     "lat": 50.9787,
     "lng": 11.0328,
     "desc": "By age 22, has relocated some 70 km northwest to the Prussian city of Erfurt.",
-    "full": "No occupation is recorded for Robert on the Erfurt house list. Döschnitz's own hammer-forge closed in 1862 — the same year Robert appears at Erfurt — and the village's other trades offered no equivalent opening for a landless young man with no trade of his own to inherit; his father's medical practice had died with him in 1855 (A9).",
-    "source": "Ancestry.com, \"Erfurt, Germany, House Lists, 1859–1872\"; German Wikipedia, \"Döschnitz\"",
-    "flags": "Robert's actual reason for choosing Erfurt is undocumented; the economic case is historian's inference.",
+    "full": "No occupation is recorded for Robert on the Erfurt house list — only his name, birth date, and birthplace, confirming the match. But the move makes sense on both ends. Döschnitz's own hammer-forge (<em>Hammerschmiede</em>), operating since at least the 15th century, closed in 1862 — the same year Robert appears at Erfurt — and the village's other trades (forestry, slate and limestone work) offered no equivalent opening for a young man without land or a craft of his own. He also had no family trade to inherit: his father's medical practice, unlike his grandfather's land, died with him in 1855. Erfurt, by contrast, was a growing Prussian city with rail service since 1847 and an expanding commercial and horticultural trade — the kind of place a landless young man with no trade of his own would look to.",
+    "source": "Ancestry.com, \"Erfurt, Germany, House Lists, 1859–1872\"; German Wikipedia, \"Döschnitz\" (Hammerschmiede closure, 1862); Wikipedia, \"Erfurt\"; Erfurt city historical pages",
+    "flags": "Robert's actual reason for choosing Erfurt is undocumented; the economic case is historian's inference, not his stated motive.",
     "images": []
   },
   {
     "id": "B3",
     "branch": "B",
-    "date": "2 Oct – 15 Nov 1865",
+    "date": "2 Oct 1865 – 15 Nov 1865",
     "tagline": "Emigration",
     "place": "Hamburg → New York",
-    "lat": 53.5511,
-    "lng": 9.9937,
-    "desc": "Departs Hamburg aboard the Electric; arrives in New York after a 44-day crossing.",
-    "full": "Two independent records confirm Robert declared himself a 25-year-old Kaufmann (merchant) at departure. The New York arrival record lists an unnamed 24-year-old joiner instead — the only Bock on the manifest, but his first name is illegible, so the identification rests on being the only match.",
-    "source": "Ancestry.com, \"Hamburger Passagierlisten, 1850–1934\"; NARA M237; Thüringisches Staatsarchiv Rudolstadt, Auswandererdatenbank, Entry 397",
-    "flags": "Ship image not embedded — the period lithograph's host site prohibits reproduction.",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "desc": "Departs Hamburg aboard the <em>Electric</em>; arrives in New York after a 44-day crossing.",
+    "full": "Two independent records — the Hamburg departure list and the Thuringian state emigration database — confirm that Robert declared himself a 25-year-old <em>Kaufmann</em> (merchant) at departure. The New York arrival record, for what all evidence points to as the same crossing, lists an unnamed 24-year-old <em>joiner</em> instead. He is the only passenger surnamed Bock on that ship's arrival manifest, but his first name is illegible, so the identification rests on being the only match, not a confirmed name. Robert's listed age (25 vs. 24) and trade (merchant vs. joiner) differ in the two records.",
+    "source": "Ancestry.com, \"Hamburger Passagierlisten (Hamburg Passenger Lists), 1850–1934\" (departure); NARA, \"New York, U.S., Arriving Passenger and Crew Lists,\" M237 (arrival); Thüringisches Staatsarchiv Rudolstadt, Auswandererdatenbank, Entry 397",
+    "flags": "Ship image not embedded — see Section 5 (SNR site permissions prohibit reproduction). The arrival-record identification of the joiner as Robert is inferential, not a confirmed name match.",
     "images": [],
     "route": true,
     "furtherReading": [
       {
-        "url": "https://snr.org.uk",
+        "url": "https://snr.org.uk/maritime-art/the-electric-c-1860/",
         "label": "Society for Nautical Research"
       }
-    ]
+    ],
+    "embarkPoint": {
+      "lat": 53.5511,
+      "lng": 9.9937,
+      "place": "Hamburg"
+    },
+    "arrivalLabel": "New York"
   },
   {
     "id": "B4",
@@ -214,14 +220,14 @@
     "place": "Rochester, NY",
     "lat": 43.1566,
     "lng": -77.6088,
-    "desc": "Moves to Rochester, possibly to live near fellow Döschnitz native Gustav Bock (1833–1899). Establishes himself as a butcher, boarding at 48 St. Joseph Street. Meets Gustav's brother-in-law, William Schroeder (1840–1926).",
-    "full": "Rochester City Directories list Robert as a butcher in 1870 and 1871. He is closely associated with Gustav Bock and Jacob Mailänder (1824–1889); both stand as his witnesses at the 1871 naturalization (B6). Schroeder, a tailor, left for Smith County, Kansas, in 1871 to homestead — his example, filed eight months ahead of Robert's own claim, would pave the way for Robert's move to Kansas.",
-    "source": "Rochester City Directories, 1869–1871; NARA Passenger Lists; 1860/1870 U.S. Census; Maxine Bock Mansholt, \"Bock Family Genealogy,\" 1976–78",
-    "flags": "Whether Robert worked directly alongside Gustav and Jacob is not documented; Robert's possible kinship to Gustav Bock is unconfirmed.",
+    "desc": "Moves to Rochester, possibly to live near and/or work with fellow Döschnitz native and possible distant family relative Gustav Bock (1833–1899). Establishes himself as a butcher and boards at 48 St. Joseph Street. Meets Gustav's brother-in-law, William Schroeder (1840–1926).",
+    "full": "Rochester City Directories list Robert as a butcher in 1870 and 1871, boarding at the same address both years — a trade he and his brother Ottomar had both learned back in Döschnitz. During these years he is closely associated with two fellow German-born immigrants: Gustav Bock, who had arrived from Döschnitz in 1860 and worked in Rochester first as a cooper, then a carpenter, and eventually a cabinetmaker; and Jacob Mailänder (1824–1889), who had arrived from Württemberg in 1854 and worked as a carpenter. Both men later stand as his witnesses at the 1871 naturalization. Gustav shares Robert's surname and hometown, raising the possibility of a family connection, though the exact relationship is unconfirmed. Schroeder, a tailor, lived with Gustav's family on Munger Street for several years before leaving for Smith County, Kansas, in 1871 to homestead there himself. His example, filed eight months ahead of Robert's own claim, would pave the way for Robert's move to Kansas as a homesteader.",
+    "source": "Rochester City Directories, 1869–1871 (Rochester Public Library); NARA, \"Passenger Lists,\" M237 (arrivals of Gustav Bock, 1860, and Jacob Mailänder, 1854); 1860 and 1870 U.S. Federal Census (Ancestry.com); FamilySearch, BLM Tract Books (William Schroeder homestead filing, 13 Jul 1871); Maxine Bock Mansholt, \"Bock Family Genealogy,\" 1976–78 (sod-breaking cooperation)",
+    "flags": "Whether Robert worked directly alongside Gustav and Jacob, rather than simply knowing them socially, is not documented. Robert's possible kinship to Gustav Bock is unconfirmed. Schroeder's direct influence on Robert's decision to homestead in Kansas is inference from timing and later contact, not a document that states it outright.",
     "images": [
       {
         "file": "../shared/images/Robert_Bock__Rochester_residency_record_1870.jpg",
-        "caption": "1870 Rochester City Directory: \"Bock Robert, butcher, 48 St. Joseph, bds. do.\"",
+        "caption": "1870 Rochester City Directory, entry \"Bock Robert, butcher, 48 St. Joseph, bds. do.\"",
         "ai": false
       }
     ]
@@ -234,14 +240,14 @@
     "place": "Rochester, NY",
     "lat": 43.1566,
     "lng": -77.6088,
-    "desc": "Files his declaration of intention to become a U.S. citizen at the Monroe County Court, just over 14 months after his arrival.",
-    "full": "The standard process required two years' residency before this first declaration. Robert didn't wait — he filed at just over 14 months. He pledges to renounce allegiance to \"the Duke of Sachs Schwarzburg\" — a clerk's garbled rendering of his actual sovereign, the Prince of Schwarzburg-Rudolstadt. No such \"Duke\" existed.",
-    "source": "New York County Court (Monroe County), \"Naturalized Petitions, ca. 1823–1906,\" via FamilySearch",
-    "flags": "Whether the phrasing originated with the clerk or Robert's own imperfect English is not determinable from the document.",
+    "desc": "Files his declaration of intention to become a U.S. citizen at the Monroe County Court. This comes just over 14 months after his arrival in New York.",
+    "full": "The standard naturalization process required two years' residency before filing this first declaration, followed by a second petition at least three years after that. Robert didn't wait. He filed at just over 14 months, well ahead of schedule, and would go on to complete the second step roughly six years after landing — longer than the five-year minimum residency the law required, not the earliest date it allowed. In the declaration, he pledges to \"become a citizen of the United States\" and to renounce permanently \"all allegiance and fidelity\" to any foreign ruler. He names, specifically, \"the Duke of Sachs Schwarzburg.\" That's a Monroe County clerk's garbled rendering of Robert's actual sovereign, the Prince of Schwarzburg-Rudolstadt. Robert was never a subject of Saxony, and no such \"Duke\" existed. But perhaps the clerk's ear, or Robert's own accented English, produced this hybrid title on the official record.",
+    "source": "New York County Court (Monroe County), \"Naturalized Petitions, ca. 1823–1906,\" Petition No. 13792–14116, filmed by the Genealogical Society of Utah, 1975, via FamilySearch",
+    "flags": "Whether the \"Sachs Schwarzburg\" phrasing originated with the clerk mishearing Robert or with Robert's own imperfect English is not determinable from the document itself.",
     "images": [
       {
         "file": "../shared/images/Declaration_of_Intention__Robert_Bock.jpg",
-        "caption": "Declaration of intention, Monroe County Court, 2 Feb 1867",
+        "caption": "Declaration of intention (Monroe County Court, 2 Feb 1867)",
         "ai": false
       }
     ]
@@ -255,18 +261,18 @@
     "lat": 43.1566,
     "lng": -77.6088,
     "desc": "Is naturalized as a U.S. citizen at the Monroe County Court, with Jacob Mailänder and Gustav Bock standing as his witnesses.",
-    "full": "This is the last documented point of contact between Robert and his German-American Rochester circle (B4). Five months later, Robert files his own homestead claim in Smith County (B7) — likely drawn there by William Schroeder's own example.",
+    "full": "This is the last documented point of contact between Robert and his German-American Rochester circle before he leaves for Kansas the following spring. The Monroe County naturalization index for this date lists only one \"Robert Bock,\" carrying case number 13998, which is how his surviving case file was located among the county's records. Robert almost certainly stays in touch with William Schroeder over the following months; just five months after this naturalization, Robert files his own homestead claim in Smith County — likely drawn there by Schroeder's own example, filed some eight and a half months before Robert's.",
     "source": "New York County Court (Monroe County), Naturalization Petition No. 13998, via FamilySearch",
-    "flags": "Continued correspondence with Schroeder after 1871 is a reasonable inference, not a documented fact.",
+    "flags": "Gustav Bock's possible kinship to Robert remains unconfirmed (see B4). Continued correspondence with Schroeder after 1871 is a reasonable inference from the timeline, not a documented fact.",
     "images": [
       {
         "file": "../shared/images/Robert_Bock_Naturalization_Certificate.jpg",
-        "caption": "Naturalization certificate, 16 Oct 1871",
+        "caption": "Naturalization certificate (Monroe County Court, 16 Oct 1871)",
         "ai": false
       },
       {
         "file": "../shared/images/Naturalization_over_18_years__Robert_Bock.jpg",
-        "caption": "Companion sworn-witness document, Jacob Mailänder and Gustav Bock attesting for Robert",
+        "caption": "Companion sworn-witness document (16 Oct 1871), Jacob Mailänder and Gustav Bock attesting for Robert",
         "ai": false
       }
     ]
@@ -279,9 +285,9 @@
     "place": "Concordia, KS",
     "lat": 39.5697,
     "lng": -97.6647,
-    "desc": "Files Homestead Application No. 6934 at the U.S. Land Office in Concordia for the NE¼ of Section 10, Township 4 South, Range 11 West — 160 acres in what would become Webster Township. He pays a fee of fourteen dollars.",
-    "full": "Robert follows William Schroeder to Smith County by roughly eight and a half months. In a sworn affidavit filed the same day, he declares himself a single man over 21 and a U.S. citizen, and confirms he has never before abandoned a homestead entry.",
-    "source": "U.S. National Archives, General Land Entry File, Homestead Application No. 6934",
+    "desc": "Files Homestead Application No. 6934 at the U.S. Land Office in Concordia, Kansas, for the northeast quarter of Section 10, Township 4 South, Range 11 West — 160 acres, in what would later become Webster Township. He pays a fee of fourteen dollars.",
+    "full": "Robert follows William Schroeder to Smith County by roughly eight and a half months, matching Schroeder's own July 1871 filing there. In a sworn affidavit filed the same day, Robert declares himself a single man over 21 and a U.S. citizen, states the entry is for his own exclusive benefit and not on behalf of anyone else, and confirms he has never before abandoned a homestead entry.",
+    "source": "U.S. National Archives, General Land Entry File, Homestead Application No. 6934 (Robert Bock)",
     "flags": "",
     "images": [
       {
@@ -291,7 +297,7 @@
       },
       {
         "file": "../shared/images/Robert_Bock_Homestead_Affidavit__1872_2.jpg",
-        "caption": "Sworn affidavit, filed the same day, 25 Mar 1872",
+        "caption": "Sworn affidavit, filed the same day as the application (25 Mar 1872) — Robert declares himself a single man over 21 and a U.S. citizen, states the entry is for his own exclusive benefit, and confirms he has never before abandoned a homestead entry",
         "ai": false
       }
     ]
@@ -304,14 +310,14 @@
     "place": "Site 1 — NE¼ Sec. 10, Webster Twp.",
     "lat": 39.72226,
     "lng": -98.54661,
-    "desc": "Moves onto his claim, building a stone house measuring 16×18 feet with a matching cellar, a well, corn cribs, a hog lot, and a stable. Breaks 30 of his 160 acres and plants corn, potatoes, and vegetables.",
-    "full": "This account comes entirely from Robert's own sworn testimony seven years later (B9). One witness adds a planting of tobacco alongside the corn and potatoes — a small trace of Old World habit carried onto the Kansas plains.",
-    "source": "Homestead Application No. 6934 — Testimony of Claimant and Witnesses, 13 Mar 1879; BLM Patent KS1850__.034",
-    "flags": "",
+    "desc": "Moves onto his claim, building a stone house measuring 16×18 feet with a matching cellar, a well, corn cribs, a hog lot, and a stable. He breaks 30 of his 160 acres and plants corn, potatoes, and vegetables.",
+    "full": "This account comes entirely from Robert's own sworn testimony seven years later, when he and two witnesses were required to describe, under oath, exactly what he had done since filing his claim. All three men agree closely on the details: settlement and residence beginning in August 1872, thirty acres broken, and improvements collectively valued at about two hundred dollars. One witness adds a detail Robert's own testimony omits — a planting of tobacco alongside the corn and potatoes, a small trace of Old World habit carried onto the Kansas plains. William Schroeder's own homestead patent places him in Section 34, Township 3 South, Range 11 West — roughly two miles due north of Robert's claim, in Section 10, Township 4 South of the same range.",
+    "source": "U.S. National Archives, General Land Entry File, Homestead Application No. 6934 (Robert Bock) — Testimony of Claimant and Testimony of Witnesses, 13 Mar 1879; U.S. Bureau of Land Management, General Land Office Records, Patent KS1850__.034 (William Shrader)",
+    "flags": "The two-mile figure is calculated from the two men's section/township/range descriptions, not stated in any document itself.",
     "images": [
       {
         "file": "../shared/images/IMG_7061.jpeg",
-        "caption": "Modern site photo, NE corner of Robert's original homestead plot, taken 27 Dec 2025",
+        "caption": "Modern site photo — NE corner of Robert's original homestead plot, S10-T04S-R11W, taken 27 Dec 2025",
         "ai": false
       }
     ],
@@ -326,13 +332,13 @@
     "lat": 39.6731,
     "lng": -99.1222,
     "desc": "Travels to the Land Office at Kirwin to prove up his claim, bringing fellow German immigrants Joseph Schwarz and Gustav Lack as his witnesses.",
-    "full": "After five to seven years of residence and cultivation, a homesteader and two \"credible witnesses\" gave sworn testimony that the law's requirements had been met. Both witnesses had known Robert for seven years and estimated his age at \"about 35 or 36\" — two to three years younger than his actual 38.",
-    "source": "James Muhn, National Archives Virtual Genealogy Fair, Oct 2019; Homestead Application No. 6934 Testimony; Pletcher, M.A. thesis, Kansas State University, 1960",
+    "full": "Land historian James Muhn, in a National Archives genealogy presentation, describes the mechanism: after five to seven years of residence and cultivation, a homesteader and two \"credible witnesses\" gave sworn testimony to the district land office attesting that the law's requirements had been met; if the register and receiver found the proof sufficient, the claimant received a final certificate — the document entitling him to the patent itself, still to come. Robert, Schwarz, and Lack were each asked roughly two dozen such questions, on how long they'd known him, his citizenship, when he settled, what he'd built, and how much he'd broken and planted. Both witnesses had known Robert for seven years, since nearly the moment he arrived in Smith County, and both estimated his age at \"about 35 or 36\" — two to three years younger than his actual 38. The Concordia and Kirwin land offices, per a 1960 Kansas State University thesis on the county's settlement, processed an unusually high volume of these proofs relative to other Kansas land offices of the period, reflecting the sheer pace of homestead filing in Smith County during the 1870s.",
+    "source": "James Muhn, \"The Homestead Act: Land Records of Your Ancestors,\" National Archives and Records Administration Virtual Genealogy Fair, October 2019; U.S. National Archives, General Land Entry File, Homestead Application No. 6934 (Robert Bock) — Testimony of Claimant and Testimony of Witnesses, 13 Mar 1879; Vera Edith Crosby Pletcher, \"A History of Smith County, Kansas to 1960,\" M.A. thesis, Kansas State University, 1960",
     "flags": "",
     "images": [
       {
         "file": "../shared/images/Screenshot_20260710_at_8_51_51PM.png",
-        "caption": "Sworn statement, homestead proof, 13 Mar 1879",
+        "caption": "Sworn statement, homestead proof (\"proving up,\" 13 Mar 1879)",
         "ai": false
       }
     ],
@@ -346,9 +352,9 @@
     "place": "Washington, D.C.",
     "lat": 38.9072,
     "lng": -77.0369,
-    "desc": "Receives his homestead patent, Final Certificate No. 2097 — full legal title to the 160 acres he's lived on and worked for seven years. Robert himself was never in Washington; only the paperwork was.",
-    "full": "This is the formal end of the process begun at Concordia (B7): settlement and improvement (B8), sworn proof at Kirwin (B9), and now the patent itself, issued from the General Land Office in Washington. The roughly nine-and-a-half-month gap reflects ordinary processing time.",
-    "source": "BLM General Land Office Records, Final Certificate No. 2097",
+    "desc": "Receives his homestead patent, Final Certificate No. 2097 — full legal title to the 160 acres he's lived on and worked for seven years.",
+    "full": "This is the formal end of the process that began with Robert's 1872 application at Concordia: settlement and improvement, sworn proof of both at Kirwin, and now the patent itself, issued from the General Land Office in Washington — the final federal instrument that actually transfers ownership from the government to Robert. The roughly nine-and-a-half-month gap between his 13 March proving-up testimony and this December patent date reflects ordinary General Land Office processing time, not any irregularity in his case.",
+    "source": "U.S. Bureau of Land Management, General Land Office Records, Final Certificate No. 2097 (Robert Bock)",
     "flags": "",
     "images": [
       {
@@ -367,10 +373,10 @@
     "place": "Site 2 — SW¼ Sec. 3, Webster Twp.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Trades his original homestead quarter with neighbor John Kattenberg (1854–1936) for Kattenberg's own claim, the SW¼ of Section 3 — diagonally adjacent to Robert's original land.",
-    "full": "Robert's great-niece Maxine recalled the exchange as motivated by Robert's wish to get away from a creek and the \"varmints\" along it. The timing — less than a year before Ottomar's family arrives in May 1885 — raises the possibility that Robert saw something in the tract that would suit a larger household better than his own.",
-    "source": "Maxine Bock Mansholt, \"Bock Family Genealogy,\" 1976–78; Salem Argus, 19 Jul 1883; Smith County Pioneer, 20 Jun 1884",
-    "flags": "The connection to Ottomar's impending arrival is informed inference, not stated in any source.",
+    "desc": "Trades his original homestead quarter with neighbor John Kattenberg (1854–1936) for Kattenberg's own claim, the southwest quarter of Section 3 — diagonally adjacent to Robert's original land, touching it at a single corner point to the northwest.",
+    "full": "Robert's great-niece Maxine Bock Mansholt, writing decades later, recalled the exchange as motivated by Robert's wish to get away from a creek and the noise made by the \"varmints\" along it. The timing is worth noting: Kattenberg's homestead entry (No. 5179) received its own patent on 15 March 1884, and a notice that it was ready for delivery at the Kirwin land office appeared that June — very likely the point at which the exchange was actually carried out, since Kattenberg could not have conveyed clear title to Robert before receiving it himself. A year earlier, on 20 August 1883, Robert had stood as one of three witnesses — alongside Mathias Hermes and Fred Trentwedel, all \"of Stuart, Kansas\" — sworn before the Clerk of the District Court at Smith Center when Kattenberg gave notice of his intention to make final proof on this same tract, published in the <em>Salem Argus</em> that July. That means Robert swore to a federal official that he knew this exact 160 acres well before it ever became his own home. The exchange also comes less than a year before Robert's brother Ottomar arrives with his family in May 1885, and the timing raises the possibility that Robert, anticipating their arrival, saw something in Kattenberg's tract that would suit a larger household better than his own.",
+    "source": "Maxine Bock Mansholt, \"Bock Family Genealogy,\" 1976–78 (unpublished family history manuscript); Salem Argus, 19 Jul 1883 (Kattenberg's proving-up notice, naming Robert as witness); Smith County Pioneer, 20 Jun 1884 (patent delivery notice)",
+    "flags": "The connection between the swap's timing and Ottomar's impending arrival is informed inference, not stated in any source.",
     "images": [],
     "site": "site2"
   },
@@ -384,12 +390,12 @@
     "lng": -98.55744,
     "desc": "Builds a new residence on the Kattenberg tract, replacing the one-room sod house the extended family has shared since Ottomar's arrival the year before.",
     "full": "",
-    "source": "The Harlan Advocate, 29 Jul 1886, p. 3",
+    "source": "The Harlan Advocate (Harlan, Kansas), 29 Jul 1886, p. 3, reporting \"Robt. Bock, Oak Creek,\" as \"building [a] residence\" with lumber purchased from a local yard",
     "flags": "",
     "images": [
       {
         "file": "../shared/images/Newspapers_com__The_Harlan_Advocate__29_Jul_1886__3_Robert_Bock_building_a_home.jpg",
-        "caption": "The Harlan Advocate, 29 Jul 1886 — \"Robt. Bock, Oak Creek, building residence\"",
+        "caption": "*The Harlan Advocate*, 29 Jul 1886 — \"Robt. Bock, Oak Creek, building residence\"",
         "ai": false
       }
     ],
@@ -403,19 +409,19 @@
     "place": "Site 2",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Dies at his home three miles south of Lebanon, unmarried and without children. The Lebanon Times names him \"Robert Buck\" — a misprint — and says further particulars were not yet known.",
-    "full": "By this point Robert is living in the new residence he'd built on the Kattenberg tract (B12), not his original stone house. He is buried at North Oak Creek Cemetery, the first of the Bock immigrant generation in Smith County to die. His headstone reads \"Robert Bock,\" epitaph \"Gone but not forgotten,\" with a small emblem near the top too worn to identify.",
-    "source": "The Lebanon Times, 27 Jan 1893, p. 4; photograph of headstone, North Oak Creek Cemetery",
+    "desc": "Dies at his home three miles south of Lebanon, unmarried and without children. <em>The Lebanon Times</em> reports only that he \"died at his home 3 miles south of this place,\" naming him \"Robert Buck\" — a misprint of his surname — and stating that further particulars were not yet known.",
+    "full": "The paper's admission that it hadn't yet learned particulars suggests the death came suddenly enough that the local press hadn't caught up with the story by press time — a brief, almost apologetic notice rather than the fuller obituary later Bock deaths in the area would receive. By this point Robert is living in the new residence he'd built on the Kattenberg tract, not his original stone house on Section 10. He is buried at North Oak Creek Cemetery in Lebanon, the first of the Bock immigrant generation in Smith County to die. His headstone gives his name simply as \"Robert Bock\" — consistent with the <em>Rufname</em> pattern established at his birth — with the epitaph \"Gone but not forgotten,\" and carries a small emblem near the top that is too worn to identify with confidence.",
+    "source": "The Lebanon Times, 27 Jan 1893, p. 4; photograph of Robert Bock's headstone, North Oak Creek Cemetery, Lebanon, Kansas, taken 27 Dec 2025",
     "flags": "The emblem on the headstone is not identified.",
     "images": [
       {
         "file": "../shared/images/IMG_7068.jpeg",
-        "caption": "Robert Bock's headstone, North Oak Creek Cemetery, taken 27 Dec 2025",
+        "caption": "Photograph of Robert Bock's headstone, North Oak Creek Cemetery (taken 27 Dec 2025)",
         "ai": false
       },
       {
         "file": "../shared/images/Robert_Bock_death_notice.jpg",
-        "caption": "Death notice, The Lebanon Times, 27 Jan 1893",
+        "caption": "Death notice, *The Lebanon Times*, 27 Jan 1893 (\"Robert Buck\" misprint)",
         "ai": false
       }
     ],
@@ -429,14 +435,14 @@
     "place": "Smith Centre, KS",
     "lat": 39.777,
     "lng": -98.786,
-    "desc": "A Notice of Final Settlement for Robert's estate appears in the Smith County Journal, naming William Schrader — the same William Schroeder who had drawn Robert to Kansas in 1872 — as administrator.",
-    "full": "The notice comes more than three years after Robert's death (B13), an unusually long gap. It names \"the estate of Emit Robert Bock deceased\" — almost certainly a misreading of \"Emil.\" It doesn't state who received Robert's land, but the 1900 Standard Atlas independently confirms Ottomar held the Section 3 tract by that year.",
-    "source": "Smith County Journal, 26 Mar 1896, p. 3; Standard Atlas of Smith County, Kansas (1900)",
-    "flags": "",
+    "desc": "A Notice of Final Settlement for Robert's estate appears in the <em>Smith County Journal</em>, naming William Schrader — the same William Schroeder who had drawn Robert to Kansas in 1872 — as administrator, and setting a hearing before the Smith County probate court for 18 April 1896.",
+    "full": "The notice comes more than three years after Robert's death, an unusually long gap for settling an estate of this size, though no source explains the delay. It's also the one place in the American record, aside from the baptismal register itself, where Robert's full baptismal name resurfaces: the notice names \"the estate of Emit Robert Bock deceased\" — almost certainly a compositor's misreading of \"Emil,\" but preserving his name in its original baptismal order, \"Emil Robert,\" rather than the \"Robert\" alone he'd gone by throughout his American life. The notice doesn't state who received Robert's land, but the 1900 <em>Standard Atlas of Smith County</em> independently confirms Ottomar held the Section 3 tract (Site 2) by that year.",
+    "source": "Smith County Journal, 26 Mar 1896, p. 3; Standard Atlas of Smith County, Kansas (1900), Webster Township plat",
+    "flags": "Land passing to Ottomar is now independently documented via the 1900 atlas, resolving a previously inferred point.",
     "images": [
       {
         "file": "../shared/images/Schroeder_settles_Robert_Emil_Bock_estate.jpg",
-        "caption": "Smith County Journal, 26 Mar 1896 — Notice of Final Settlement",
+        "caption": "*Smith County Journal*, 26 Mar 1896 — Notice of Final Settlement",
         "ai": false
       }
     ]
@@ -449,10 +455,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Is born in Döschnitz, baptized Eduard Louis Ottomar — the seventh of eight children of Dr. Johann Gottlob Bock and Theresia. Like his brother Robert, he goes by his Rufname.",
-    "full": "He is about five years Robert's junior, and not yet 10 when their father dies in 1855 (A9). Unlike Robert, Ottomar remains in Döschnitz into adulthood, marries there, and doesn't leave for America until age 39 (C7). The record gives the birth hour precisely — 2 a.m. — and notes he was baptized at home on 7 September by the parish pastor. His godparents were Louis Sorge, a master farrier, and Ernestine Lansert, wife of a princely court official.",
-    "source": "Baptismal record, Döschnitz-Meura, Taufen 1822–1847, Bild 138; FamilySearch Family Tree",
-    "flags": "Two details remain illegible: a marginal note beneath the father's entry, and Ernestine Lansert's maiden name.",
+    "desc": "Is born in Döschnitz, baptized Eduard Louis Ottomar — the seventh of eight children of Dr. Johann Gottlob Bock and Theresia (née Eberhardt). Like his brother Robert, he goes by his Rufname rather than his first given name — though in Ottomar's case, this means skipping past two names, Eduard and Louis, to reach the third.",
+    "full": "He is about five years Robert's junior, and not yet 10 when their father dies in 1855. Unlike Robert, who left for Erfurt as a young man and never returned, Ottomar remains in Döschnitz into adulthood, marries there, and doesn't leave for America until age 39. The baptismal record gives the birth hour precisely — 2 a.m. on 21 August — and states he was baptized at home, in his parents' dwelling, rather than at the church, on 7 September, by the parish pastor. His godparents were Louis Sorge, a master farrier in Döschnitz, and Ernestine Lansert, wife of a princely court official.",
+    "source": "Baptismal record, Döschnitz-Meura, Taufen 1822–1847, Bild 138; FamilySearch Family Tree entry for Ottomar Louis Bock",
+    "flags": "Full line-by-line transcription now complete. Two details in the record remain uncertain: a marginal note beneath the father's entry, and Ernestine Lansert's maiden name — neither legible enough to confirm.",
     "images": [],
     "isFirst": true
   },
@@ -465,9 +471,9 @@
     "lat": 50.6167,
     "lng": 11.2333,
     "desc": "Daughter Clara born, out of wedlock, with a lifelong intellectual disability.",
-    "full": "A 1909 Smith County guardianship notice describes her, in the era's own clinical language, as \"feeble minded\"; her 1939 obituary states she was \"an invalid, never being able to attend school, but she learned to do many things with her hands to help her mother.\" She remained in her parents' household for the whole of their lives.",
-    "source": "Baptismal record, Bild 7; Smith County Pioneer, 2 Dec 1909; Clara's 1939 obituary and family recollections",
-    "flags": "Her headstone gives 1869, a year off from the German records' 1868 — no document explains the discrepancy.",
+    "full": "A 1909 Smith County guardianship notice describes her, in the era's own clinical language, as \"feeble minded\"; her 1939 obituary states she was \"an invalid, never being able to attend school, but she learned to do many things with her hands to help her mother.\" Her niece Maxine, in her own family recollections, recalled Clara paring vegetables and fruit and running the household's hand washer for the family's eleven members — capable within a limited domestic sphere, never independent of it. She remained in her parents' household for the whole of their lives.",
+    "source": "Baptismal record, Bild 7; Smith County Pioneer, 2 Dec 1909, p. 5 (guardianship notice); Clara's 1939 obituary and Maxine Bock Mansholt's own recollections, both in Bock Mansholt, \"Bock Family Genealogy\" (1976–78)",
+    "flags": "Two independent German sources — the Döschnitz-Meura parish register and the 1885 Thüringisches Staatsarchiv Rudolstadt emigration database — agree Clara was born in 1868. Her headstone at North Oak Creek Cemetery instead gives 1869, a full year off, and is the only source among the three that isn't German. No document explains the discrepancy; most plausibly a lapse in family memory of the exact year after decades and an ocean's remove, rather than a documented correction.",
     "images": []
   },
   {
@@ -478,10 +484,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Ottomar marries Luise Pauline Möller, born 16 May 1844 in Döschnitz, daughter of Johann Heinrich August Möller — a master tailor, later the village's Ortsvorsteher (headman).",
-    "full": "Pauline's mother died in childbirth in 1848; neither twin survived. Her father remarried, and by this marriage the family had risen to the highest civic office a commoner could hold — she came to it as a social peer, not an inferior.",
-    "source": "Archion: Döschnitz-Meura, Trauungen 1822–1875, Bild 136; Baptismal record, Taufen 1822–1847",
-    "flags": "Contradicts 1935 family history and Ottomar's own obituary, which give 1867/68 — the archival record is treated as authoritative.",
+    "desc": "Ottomar marries Luise Pauline Möller, born 16 May 1844 in Döschnitz, daughter of Johann Heinrich August Möller — a master tailor at the time of her birth, later the village's <em>Ortsvorsteher</em> (headman) — and his first wife, Friedericke (née Säuberlich).",
+    "full": "Pauline's mother died in childbirth in November 1848, delivering twins, when Pauline was four years old; neither twin survived. Her father remarried, and Pauline grew up in a household that, by the time of this marriage, had risen from craftsman's standing to the highest civic office a commoner could hold in the village — meaning she came to it not as a physician's family's social inferior, but as a peer.",
+    "source": "Archion: Döschnitz-Meura, Trauungen 1822–1875, Bild 136 (marriage, father's occupation and title); Baptismal record, Döschnitz-Meura, Taufen 1822–1847 (Pauline's birth)",
+    "flags": "Contradicts 1935 family history and Ottomar's obituary, which give 1867/68 — archival record treated as authoritative. Re-reviewed and confirmed against \"The Möllers of Döschnitz\" and both Möller family essays; no discrepancies found.",
     "images": []
   },
   {
@@ -492,10 +498,10 @@
     "place": "Königsee",
     "lat": 50.65,
     "lng": 11.1667,
-    "desc": "Clara formally legitimized by rescript of the Fürstliches Justizamt, following the marriage.",
+    "desc": "Clara formally legitimized by rescript of the Fürstliches Justizamt, following the marriage",
     "full": "",
     "source": "Baptismal record annotation, Bild 7",
-    "flags": "",
+    "flags": "Re-reviewed and confirmed against Clara's baptismal record annotation (transcription and translation on file); wording matches the primary source exactly.",
     "images": []
   },
   {
@@ -508,7 +514,7 @@
     "lng": 11.2333,
     "desc": "Six more children are born: Emil (1871–1939), Lydia (1873–1946), Rudolph \"Rudy\" (1875–1901), Carl (1877–1929), Augusta \"Gusta\" (1880–1949), and Gottlob (1883–1936).",
     "full": "",
-    "source": "Baptismal records, Bilder 35, 54, 77, 99, 120, 157; Thüringisches Staatsarchiv Rudolstadt, Auswandererdatenbank",
+    "source": "Baptismal records, Bilder 35, 54, 77, 99, 120, 157; Thüringisches Staatsarchiv Rudolstadt, Auswandererdatenbank, Entry 396 (1885), confirming each birth year independently",
     "flags": "",
     "images": []
   },
@@ -520,10 +526,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Ottomar's occupation, recorded at each child's baptism, traces a declining arc: Oeconom alternates with Fleischer u. Oeconom, then gives way to Landwirt and finally Handarbeiter — day-laborer — by December 1883.",
+    "desc": "Ottomar's occupation, recorded at each child's baptism, traces a declining arc rather than a straight line: <em>Oeconom</em> (1871) alternates with <em>Fleischer u. Oeconom</em> (1873, 1877) and reappears alone in 1875, before giving way to <em>Landwirt</em> (1880) and finally <em>Handarbeiter</em> — day-laborer — by December 1883.",
     "full": "",
     "source": "Baptismal records, Bilder 35, 54, 77, 99, 120, 157",
-    "flags": "Interpreted as reflecting the village's economic contraction.",
+    "flags": "Interpreted as reflecting the village's economic contraction",
     "images": []
   },
   {
@@ -532,16 +538,16 @@
     "date": "6 May 1885",
     "tagline": "Emigration",
     "place": "Hamburg → New York",
-    "lat": 53.5511,
-    "lng": 9.9937,
-    "desc": "Family (Ottomar, Pauline, seven children) departs aboard the S.S. Frisia — rated the fastest ship in the Hamburg America Line fleet at launch — arriving New York 19 May.",
-    "full": "Pauline, 40 at departure, was pregnant with the family's eighth child. She would give birth to a daughter, Lena, in Lebanon that autumn — the first of Ottomar and Pauline's children born on American soil.",
-    "source": "Staatsarchiv Hamburg, Hamburger Passagierlisten, Band 054 C; NARA M237, List 588",
-    "flags": "Ship image not embedded, per the design's ship-image handling.",
+    "lat": 40.7128,
+    "lng": -74.006,
+    "desc": "Family (Ottomar, Pauline, seven children) departs aboard the <em>S.S. Frisia</em> — an iron-hulled Hamburg America Line steamship rated the fastest in its fleet at launch — arriving New York 19 May.",
+    "full": "Pauline, 40 years old at departure, was pregnant with the family's eighth child. She would give birth to a daughter, Lena, in Lebanon that autumn — the first of Ottomar and Pauline's children born on American soil.",
+    "source": "Staatsarchiv Hamburg, Hamburger Passagierlisten, Band 054 C, p. 512; NARA M237, List 588",
+    "flags": "Ship image not embedded — see Section 5.",
     "images": [
       {
         "file": "../shared/images/Family_of_Ottomar_and_Pauline_Bock_1885.jpg",
-        "caption": "Family portrait, Dessau, shortly before the 1885 emigration",
+        "caption": "Family portrait, Dessau, shortly before the 1885 emigration (location per annotation on the photo's border)",
         "ai": false
       },
       {
@@ -553,14 +559,20 @@
     "route": true,
     "furtherReading": [
       {
-        "url": "https://www.si.edu",
+        "url": "https://americanhistory.si.edu/collections/object/nmah_676794",
         "label": "Smithsonian ship model record"
       },
       {
-        "url": "https://www.norwayheritage.com",
+        "url": "https://www.norwayheritage.com/p_ship.asp?sh=frisi",
         "label": "Norway Heritage ship history"
       }
-    ]
+    ],
+    "embarkPoint": {
+      "lat": 53.5511,
+      "lng": 9.9937,
+      "place": "Hamburg"
+    },
+    "arrivalLabel": "New York"
   },
   {
     "id": "C8",
@@ -570,11 +582,12 @@
     "place": "New York → Smith County, KS",
     "lat": 39.6731,
     "lng": -99.1222,
-    "desc": "Travels overland by rail — likely via Chicago, then the Central Branch Union Pacific through Atchison and Concordia to Kirwin — with the final leg by wagon; reaches Smith County by 25 May.",
+    "desc": "Travels overland by rail — likely via Chicago, then the Central Branch Union Pacific line through Atchison and Concordia to Kirwin, the nearest railhead to Smith County at the time — with the final leg by wagon; reaches Smith County by 25 May.",
     "full": "",
-    "source": "Bock, Emil G. (1935), \"The Bock Family Tree\" [handwritten letter]",
-    "flags": "Route reconstructed, not documented.",
-    "images": []
+    "source": "Bock, Emil G. (1935), \"The Bock Family Tree\" [handwritten letter], Lebanon, Kansas — marginal note giving the arrival date as May 25, 1885",
+    "flags": "Route reconstructed, not documented — see Section 4.",
+    "images": [],
+    "arrivalLabel": "Smith County, KS"
   },
   {
     "id": "C9",
@@ -586,7 +599,7 @@
     "lng": -98.55744,
     "desc": "Lena born near Lebanon that autumn — the only one of Ottomar and Pauline's children born a natural-born U.S. citizen.",
     "full": "",
-    "source": "Bock, Emil G., \"The Bock Family Tree\" (1935), as transcribed in Maxine Bock Mansholt, \"Bock Family Genealogy\" (1976–78)",
+    "source": "Bock, Emil G., \"The Bock Family Tree\" (6 Jan 1935), as transcribed in Maxine Bock Mansholt, \"Bock Family Genealogy\" (1976–78)",
     "flags": "",
     "images": []
   },
@@ -598,9 +611,9 @@
     "place": "Site 2",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Eleven family members live together in Robert's one-room sod house on the Kattenberg tract — a sharp contrast to the stone house Robert had built and left behind on his original claim.",
-    "full": "Temporary sleeping arrangements were built from box-elder cross-members and the packing crates that had carried Pauline's featherbeds from Germany. Ottomar later quarried rock to build a three-room house into the hillside — very possibly the same house referenced in the family's 1904 \"new house\" record (C16), though no source directly confirms that link.",
-    "source": "Bock Mansholt, Maxine, \"Bock Family Genealogy\" (1976–78)",
+    "desc": "Eleven family members live together in Robert's one-room sod house, on the Kattenberg tract Robert had swapped for the year before — a sharp contrast to the stone house he'd built and left behind on his original claim.",
+    "full": "Temporary sleeping arrangements were built from box-elder cross-members and the packing crates that had carried Pauline's featherbeds from Germany, with wagon canvases borrowed from neighbors for shelter. Ottomar later quarried rock to build a three-room house into the hillside — later expanded by four more rooms, at an unrecorded date — very possibly the same house referenced in the family's 1904 \"new house\" record, though no source directly confirms that link.",
+    "source": "Bock Mansholt, Maxine, \"Bock Family Genealogy\" (unpublished manuscript, 1976–78)",
     "flags": "",
     "images": [],
     "site": "site2",
@@ -615,15 +628,10 @@
     "lat": 39.777,
     "lng": -98.786,
     "desc": "Ottomar is naturalized as a U.S. citizen at the District Court of the 15th Judicial District, sitting in Smith County.",
-    "full": "He had filed his declaration of intention on 17 Nov 1888. In open court, he swore to support the U.S. Constitution and renounced allegiance to Wilhelm II, Emperor of Germany. Clerk J. D. Mollison certified the order at his office in Smith Centre.",
-    "source": "Smith County District Court, Naturalization Record, 19 Sep 1891",
-    "flags": "The undated studio portrait shown here is not documented as taken specifically for this occasion.",
+    "full": "He had filed his declaration of intention on 17 November 1888 and, per the court's finding, had resided in the United States more than five years and in Kansas more than one year prior to this application — consistent with his family's May 1885 arrival. In open court, he swore to support the U.S. Constitution and renounced allegiance to Wilhelm II, Emperor of Germany, his sovereign by birth. Clerk J. D. Mollison certified the order at his office in Smith Centre, Kansas.",
+    "source": "Smith County District Court, Naturalization Record, 19 Sep 1891 (case file, \"Ottomar Bock\")",
+    "flags": "The undated studio portrait held alongside this card is not documented as having been taken specifically for this occasion — it's included here as the best available likeness from roughly this period of his life, not as a dated record of the naturalization itself.",
     "images": [
-      {
-        "file": "../shared/images/Ottomarnaturalized.jpeg",
-        "caption": "Naturalization record, District Court, Smith County, KS, 19 Sep 1891",
-        "ai": false
-      },
       {
         "file": "../shared/images/Ottomar_Bock.jpg",
         "caption": "Studio portrait of Ottomar (undated)",
@@ -633,6 +641,11 @@
         "file": "../shared/images/Ottomar_Bock_restored.jpg",
         "caption": "AI-enhanced version of the studio portrait",
         "ai": true
+      },
+      {
+        "file": "../shared/images/Ottomarnaturalized.jpeg",
+        "caption": "Naturalization record, District Court, 15th Judicial District, Smith County, KS, 19 Sep 1891 (single-page combined scan)",
+        "ai": false
       }
     ]
   },
@@ -644,10 +657,10 @@
     "place": "Webster Twp., Smith Co.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Robert dies at his home three miles south of Lebanon, unmarried and without children — the first of the Bock immigrant generation in Smith County to die. His land likely passes to Ottomar afterward.",
-    "full": "He had lived in the United States on his own for just over nineteen and a half years, including close to thirteen years in Kansas. He then lived as part of the reunified family for a further seven years and eight months, until his death in January 1893.",
+    "desc": "Robert dies at his home three miles south of Lebanon, unmarried and without children — the first of the Bock immigrant generation in Smith County to die. His land likely passes to Ottomar afterward, though this is inferred from later land records rather than stated in any probate document.",
+    "full": "He had lived in the United States on his own for just over nineteen and a half years — from his November 1865 arrival in New York to his family's reunion with him in May 1885 — including close to thirteen years in Kansas itself, from his 1872 settlement on the claim to that same 1885 reunion. He then lived as part of the reunified family for a further seven years and eight months, until his death in January 1893.",
     "source": "See B13–B14",
-    "flags": "",
+    "flags": "The Kansas-settlement start point (August 1872) is dated only to the month in B8, so the \"close to thirteen years\" figure carries that same slight imprecision at its start; the just-over-nineteen-and-a-half-year total, anchored to the firmly dated 1865 arrival, is not affected. Images (headstone, death notice) reused from B13, since both cards describe the same event from each branch's perspective.",
     "images": [
       {
         "file": "../shared/images/IMG_7068.jpeg",
@@ -656,7 +669,7 @@
       },
       {
         "file": "../shared/images/Robert_Bock_death_notice.jpg",
-        "caption": "Death notice, The Lebanon Times, 27 Jan 1893",
+        "caption": "Death notice, *The Lebanon Times*, 27 Jan 1893",
         "ai": false
       }
     ],
@@ -670,14 +683,14 @@
     "place": "Webster Twp., Smith Co.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Pauline \"falls heir to quite a lot of money from Germany.\" Within months, Ottomar spends exactly $3,000 combined on two land purchases.",
-    "full": "One week later, the paper reported \"Ottoman [sic] Bock has purchased the Lon Wright farm of 160 acres\" — the NW¼ of Section 10, across the section line from Site 2, for $1,325. Three months later he purchased a second 160 acres in White Rock Township for $1,675. The two purchases sum to exactly $3,000.",
-    "source": "Smith County Pioneer, 7 & 14 Apr 1898; Smith County Journal, 6 Oct 1898; Smith County Pioneer, 20 Oct & 4 Aug 1898; The Kensington Mirror, 5 Aug 1898",
-    "flags": "No single document states the inheritance as exactly $3,000 — that figure is calculated by summing the two purchase prices.",
+    "desc": "Pauline \"falls heir to quite a lot of money from Germany\" — the <em>Smith County Pioneer</em> reports it without a figure. Her father's estate had been settled in Döschnitz that year, nineteen years after his 1879 death. Within months, Ottomar spends exactly $3,000 combined on two land purchases.",
+    "full": "One week after the inheritance was first reported, the same paper's Harlan-area correspondent noted that \"Ottoman [sic] Bock has purchased the Lon Wright farm of 160 acres.\" The deed, recorded that October, names the sellers as A. A. and Jennie Wright and the land as the northwest quarter of Section 10, Township 4 South, Range 11 West — directly across the section line from the family's Site 2 home quarter — for $1,325. Three months later, on 27 July 1898, Ottomar purchased a second 160 acres from W. S. Fields: the south half of the northeast quarter and north half of the southeast quarter of Section 36, Township 2 South, Range 11 West, in White Rock Township — verified at roughly 7.8 miles north of the family's existing land (period sources described it as \"roughly twelve miles\") — for $1,675. The two purchases sum to exactly $3,000.",
+    "source": "Smith County Pioneer, 7 Apr 1898, p. 8 (inheritance reported); Smith County Pioneer, 14 Apr 1898, p. 8 (Wright farm purchase reported); Smith County Journal, 6 Oct 1898, p. 3; The Lebanon Journal, 8 Oct 1898, p. 1; Smith County Pioneer, 20 Oct 1898, p. 3 (Wright farm deed, $1,325); Smith County Pioneer, 4 Aug 1898, p. 4; The Kensington Mirror, 5 Aug 1898, p. 5 (White Rock purchase, $1,675)",
+    "flags": "No single document states Pauline's inheritance as exactly $3,000 — that figure is calculated by summing the two now precisely-documented purchase prices ($1,325 + $1,675). This is a different $3,000 from the sum her half-sister Louise forfeited in the same 1898 division, coincidentally the same figure, but not the same money. Location pinned to Site 2 (the family's home base, where the news presumably reached them) rather than either purchased tract, since the event as reported is about the windfall itself, not a specific parcel.",
     "images": [
       {
         "file": "../shared/images/Newspapers_com__Smith_County_Pioneer__7_Apr_1898__8_Pauline_Bock_inherits_money_from_Germany.jpg",
-        "caption": "Smith County Pioneer, 7 Apr 1898 — Pauline's inheritance reported",
+        "caption": "Screenshot of the 7 Apr 1898 *Smith County Pioneer* item reporting Pauline's inheritance",
         "ai": false
       }
     ],
@@ -696,14 +709,14 @@
     "place": "Glencoe, Oklahoma Territory",
     "lat": 36.2117,
     "lng": -97.2478,
-    "desc": "Rudolph (\"Rudy\") dies of typhoid fever in Glencoe, where he'd moved eight months earlier to open a blacksmith shop. He was 25, due to marry Della House later that month.",
-    "full": "His brother Emil, summoned by telegram, reaches his bedside too late for recognition in English, but the dying man opens his eyes and smiles when Emil speaks to him in German. His remains are returned to Lebanon by rail; the funeral procession is about a mile long, and he is buried at Oak Creek Cemetery.",
-    "source": "The Glencoe Mirror, 6 & 13 Sep 1901; Smith County Pioneer, 12 & 19 Sep 1901; The Lebanon Journal, 14 & 21 Sep 1901",
+    "desc": "Rudolph (\"Rudy\") dies of typhoid fever in Glencoe, where he'd moved eight months earlier to open a blacksmith shop. His brother Emil, summoned by telegram, reaches his bedside too late for recognition in English, but the dying man opens his eyes and smiles when Emil speaks to him in German. His remains are returned to Lebanon by rail; the funeral procession is about a mile long, and he is buried at Oak Creek Cemetery. He was 25, and had been due to marry Della House of Webster Township later that month.",
+    "full": "",
+    "source": "The Glencoe Mirror (Glencoe, OK), 6 & 13 Sep 1901; Smith County Pioneer, 12 & 19 Sep 1901; Smith County Journal, 19 Sep 1901; The Lebanon Journal, 14 & 21 Sep 1901; The Lebanon Argus, 13 Sep 1901",
     "flags": "",
     "images": [
       {
         "file": "../shared/images/FullSizeRender.jpeg",
-        "caption": "Photo of Rudy as a blacksmith",
+        "caption": "Photo of Rudy in his blacksmith's apron",
         "ai": false
       },
       {
@@ -733,7 +746,7 @@
     "images": [
       {
         "file": "../shared/images/IMG_8738.jpeg",
-        "caption": "Smith County Pioneer, 28 Jan 1904 — runaway-team injury item",
+        "caption": "*Smith County Pioneer*, 28 Jan 1904 — \"Ottoman Bock\" runaway-team injury item",
         "ai": false
       }
     ],
@@ -747,19 +760,19 @@
     "place": "Webster Twp., Smith Co.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Ottomar takes out lumber for a new 18×42 house, built around the stone house the family has occupied since the sod-house years (C10) — the older structure becoming the new building's basement.",
-    "full": "A local correspondent reports two weeks later that the house \"will soon be completed\" — though neither source confirms it was actually finished; both are forward-looking. This is Ottomar's own stone house, a separate structure from the lumber residence Robert built for himself on the same tract in 1886 (B12).",
+    "desc": "Ottomar takes out lumber for a new 18×42 house, built around the stone house the family has occupied since the sod-house years — the older structure becoming the new building's basement.",
+    "full": "A local correspondent reports two weeks later that the house \"will soon be completed,\" predicting it \"will make them a beautiful home\" — the source of the \"beautiful\" phrase used in earlier drafts of this card, though neither source actually confirms the house was finished; both are forward-looking. Worth distinguishing: the stone house this new residence is built around is Ottomar's own — quarried by him into a hillside per Mansholt's account — and is a separate structure from the lumber residence Robert built for himself on the same tract in 1886, where Robert lived until his death in 1893. The two are easy to conflate since both sit on the same land in the same years, but no source links them as the same building.",
     "source": "The Lebanon Argus, 8 Apr 1904, p. 4; Smith County Pioneer, 21 Apr 1904, p. 4",
-    "flags": "",
+    "flags": "Corrected this pass: earlier drafts stated the house \"was completed\" and paraphrased the \"beautiful home\" line as though already true; no source confirms actual completion, only construction in progress and an April prediction.",
     "images": [
       {
         "file": "../shared/images/Ottomar_Bock_preparing_to_build_a_house.jpg",
-        "caption": "The Lebanon Argus, 8 Apr 1904 — \"took out lumber... for an 18x42 house\"",
+        "caption": "*The Lebanon Argus*, 8 Apr 1904 — \"Mr. O. Bock took out lumber... for an 18x42 house\"",
         "ai": false
       },
       {
         "file": "../shared/images/Newspapers_com__Smith_County_Pioneer__21_Apr_1904__4_Ottomar_Bock_building_a_fine_new_house.jpg",
-        "caption": "Smith County Pioneer, 21 Apr 1904 — \"new house will soon be completed\"",
+        "caption": "*Smith County Pioneer*, 21 Apr 1904 — \"Ottoman Bock's new house will soon be completed\"",
         "ai": false
       }
     ],
@@ -773,14 +786,14 @@
     "place": "Webster Twp., Smith Co.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "A bull knocks Ottomar down; he grabs the ring in its nose, likely keeping the animal from killing him outright, but it paws and bruises his chest badly before he's freed.",
+    "desc": "A bull knocks Ottomar down; he grabs the ring in its nose, which likely keeps the animal from killing him outright with its head, but it paws and bruises his chest badly before he's freed. Papers judge his recovery likely absent fever.",
     "full": "",
-    "source": "The Lebanon Argus, 12 Apr 1907, p. 1; Smith County Messenger, 11 Apr 1907, p. 10",
-    "flags": "The Messenger's \"G. Bock\" phrasing is shared with his son Gottlob elsewhere in the press record; the Argus headline confirms this item is Ottomar's.",
+    "source": "The Lebanon Argus, 12 Apr 1907, p. 1 (\"Ottomar Bock injured by bull\"); Smith County Messenger, 11 Apr 1907, p. 10 (corroborating, naming him only \"Mr. G. Bock\")",
+    "flags": "The Messenger's \"G. Bock\" phrasing is shared with his son Gottlob elsewhere in the press record (and with Ottomar's own 1909 obituary); the Argus headline is what confirms this item is Ottomar's, not Gottlob's.",
     "images": [
       {
         "file": "../shared/images/IMG_8739.jpeg",
-        "caption": "The Lebanon Argus, 12 Apr 1907 — \"Ottomar Bock injured by bull\"",
+        "caption": "*The Lebanon Argus*, 12 Apr 1907 — \"Ottomar Bock injured by bull\" headline and article",
         "ai": false
       }
     ],
@@ -795,10 +808,16 @@
     "lat": 39.72987,
     "lng": -98.55744,
     "desc": "Ottomar dies of consumption (tuberculosis) after a lasting illness.",
-    "full": "His youngest unmarried daughter, Gusta, had returned home from a dressmaking career in Concordia in late 1908 to help Pauline nurse him — a nearly year-long arc consistent with tuberculosis's typically slow course. Tuberculosis was the leading cause of death in the U.S. through this period; \"consumption\" and \"tuberculosis\" were effectively synonymous by this date, following Robert Koch's 1882 identification of the bacterium.",
-    "source": "Smith County Pioneer, 30 Sep 1909; The Lebanon Times, 30 Sep 1909; The Smith County Messenger, 30 Sep 1909",
+    "full": "His youngest unmarried daughter, Gusta, had returned home from a dressmaking career in Concordia in late 1908 specifically to help Pauline nurse him through his decline — a nearly year-long arc consistent with tuberculosis's typically slow, months-long course, rather than a sudden final illness. Tuberculosis was the leading cause of death in the United States through this period, responsible for roughly one in seven to one in ten deaths nationally, and Kansas's own State Board of Health, under Samuel Crumbine (1904–1923), was in the midst of an active public-health campaign against it at the time of Ottomar's death — including documented cases among rural Kansas farm families, not only in cities. \"Consumption\" and \"tuberculosis\" were effectively synonymous by this date: medical writers of the era used them as strict equivalents following Robert Koch's 1882 identification of the causative bacterium, though the term's older, looser sense (\"a wasting away\") had not entirely vanished from lay use, so any single lay-press diagnosis carries some irreducible uncertainty.",
+    "source": "Smith County Pioneer, 30 Sep 1909, p. 4 (\"G. Bock\" obituary); The Lebanon Times, 30 Sep 1909, p. 1 (\"Ottomore Louis Bock\" obituary); The Smith County Messenger, 30 Sep 1909, p. 4 (\"Otto Bock\" obituary — the only one of the three giving cause of death); Bock McClaren Citations with Images (Gusta's return from Concordia). On tuberculosis as leading cause of death and Kansas's contemporary anti-TB campaign: U.S. Census Bureau mortality statistics, 1910 (Bulletin 109); Kansas Reflector, \"Kansas tuberculosis outbreak reminds us of long battle for public health,\" 2 Feb 2025 (Crumbine anecdote, Shawnee County farmer, 1908). On \"consumption\" as a synonym for tuberculosis: John H. Pryor, M.D., \"The Relative Death-Rates from Cancer and Consumption,\" 1899 (professional convention); E. H. Gibbs, M.D., \"Consumption,\" 1879 (older, looser lay usage).",
     "flags": "",
-    "images": [],
+    "images": [
+      {
+        "file": "../shared/images/IMG_7074.jpeg",
+        "caption": "User photo, 27 Dec 2025 — Ottomar's headstone",
+        "ai": false
+      }
+    ],
     "site": "site2"
   },
   {
@@ -809,19 +828,19 @@
     "place": "Webster Twp., Smith Co.",
     "lat": 39.72987,
     "lng": -98.55744,
-    "desc": "Pauline and her sons Gottlob and Emil divide their jointly-held inheritance into three discrete landholdings, each ending up sole owner of one quarter section.",
-    "full": "Pauline and the other heirs convey the Section 3 home quarter (13/14 interest, $6,954.28) to Gottlob; Gottlob and the others convey the Section 10 quarter to Emil; Emil and the others convey the White Rock quarter to Pauline. Under Kansas's intestate-succession rule, a widow with surviving children took half the estate, the rest split equally among the children — with seven surviving children, that's exactly the 13/14 fraction recorded here.",
-    "source": "The Athol Record, 21 Apr 1910, p. 1; Smith County Pioneer, 21 Apr 1910, p. 5",
-    "flags": "The 13/14 reading is well-supported by the succession math but hasn't been confirmed against the 1910 Kansas statute text itself.",
+    "desc": "Pauline and her sons Gottlob and Emil divide up their jointly-held inheritance into three discrete landholdings, each ending up sole owner of one quarter section instead of holding fractional interests in all three.",
+    "full": "Three deeds recorded the same week convert overlapping fractional interests into single ownership: Pauline and the other heirs convey the Section 3 home quarter (13/14 interest, $6,954.28) to Gottlob, already locally reported as having \"bought the home farm\" that January; Gottlob and the others convey the Section 10 quarter (the 1898 Wright purchase) to Emil; Emil and the others convey the White Rock quarter to Pauline. The 13/14 figure is very likely exact, not a misprint: under Kansas's longstanding intestate-succession rule, a widow with surviving children took half the estate, the rest split equally among the children — with seven surviving children, that's Pauline's 7/14 plus six siblings' 1/14 each, leaving Gottlob's own 1/14 to complete full ownership. That 13/14 lands exactly on the fraction this family's specific composition would predict is a real point in its favor — a coincidence a scanning artifact for \"1/4\" wouldn't have any reason to produce. The \"et al\" denotes those other siblings — Clara, Lydia, Carl, Gusta, and Lena (Rudolph died 1901) — inferred from the family record, not named in the deeds. Only Emil and Gottlob farmed and stayed in Smith County; the others left for other pursuits or Colorado.",
+    "source": "The Athol Record, 21 Apr 1910, p. 1; Smith County Pioneer, 21 Apr 1910, p. 5 (both confirmed directly against original scans); on siblings' occupations and relocations: obituary of Gottlob O. Bock, 1936 (reprinted in Bock Mansholt, Maxine, \"Bock Family Genealogy,\" 1976–78) naming Clara, Lydia, Gusta, and Lena's out-of-state residences; The Rocky Mountain News (Denver), 25 Sep 1929 (Carl's death notice, independently confirming Lydia's Colorado residence); Smith County Journal, 13 Jan 1910, p. 7 (\"Gottlieb Bock has bought the home farm\")",
+    "flags": "Corrected (Revision 8), reversing a prior correction: direct review of both original scans (The Athol Record and Smith County Pioneer, both 21 Apr 1910) confirms the figure as $6,954.28 in both papers — the earlier change to $6,054.28 was itself the error, not a fix. On \"13-14\": the intestate-law math is a strong argument for reading it as genuine rather than a misprint for \"1-4,\" since 13/14 is exactly what seven children plus a widow would produce and 1/4 corresponds to no natural division of this estate — but this hasn't been confirmed against the actual 1910 Kansas statute text or a fresh look at the original deed scans, so it's presented as well-supported rather than fully settled.",
     "images": [
       {
         "file": "../shared/images/The_Athol_Record_1910_04_21_1.png",
-        "caption": "The Athol Record, 21 Apr 1910 — real estate transfers",
+        "caption": "*The Athol Record*, 21 Apr 1910 — real estate transfers",
         "ai": false
       },
       {
         "file": "../shared/images/Smith_County_Pioneer_1910_04_21_5.png",
-        "caption": "Smith County Pioneer, 21 Apr 1910 — showing \"13-14 interest\"",
+        "caption": "*Smith County Pioneer*, 21 Apr 1910 — real estate transfers, showing \"13-14 interest\"",
         "ai": false
       }
     ],
@@ -841,23 +860,18 @@
     "lat": 39.8058,
     "lng": -98.5636,
     "desc": "Pauline dies at her home in Lebanon, Monday evening at 7:30, age 66 years, 10 months, 11 days.",
-    "full": "She had moved from the farm into Lebanon about a year earlier. Her final illness was brief — ill a few weeks, seemed to improve, then declined sharply. She was survived by seven children, only Rudolph (d. 1901) having predeceased her. Buried at Oak Creek Cemetery, beside Ottomar. From her arrival in 1885 to her death, she had lived in Smith County as a German immigrant for 25 years, 10 months, and 2 days.",
-    "source": "Bock Mansholt, Maxine, \"Bock Family Genealogy\" (1976–78); Smith County Journal, 30 Mar 1911, p. 3",
-    "flags": "Closed: the obituary as reprinted says \"eight children\" survived her; the correct count is seven.",
+    "full": "She had moved from the farm into Lebanon about a year earlier, on 1 March 1910. Her final illness was brief rather than prolonged — ill for a few weeks, seemed to improve, then declined sharply the Saturday before her death. She was survived by seven children, only Rudolph (d. 1901) having predeceased her. Buried at Oak Creek Cemetery, beside Ottomar. From her arrival on 25 May 1885 to her death, she had lived in Smith County as a German immigrant for 25 years, 10 months, and 2 days.",
+    "source": "Bock Mansholt, Maxine, \"Bock Family Genealogy\" (unpublished manuscript, 1976–78), reprinting Pauline's obituary; Smith County Journal, 30 Mar 1911, p. 3; burial site confirmed by the user's own photographs of the Bock headstones at Oak Creek Cemetery",
+    "flags": "Closed, not to be revisited: the obituary as reprinted says \"eight children\" survived her; the actual count of eight children she bore minus Rudolph's 1901 death makes seven the correct surviving count, so this card reads seven. Standing hypothesis is that the obituary itself is simply wrong on this point, absent an unrecorded miscarriage no source attests to.",
     "images": [
       {
         "file": "../shared/images/IMG_7075.jpeg",
-        "caption": "Pauline & Ottomar's headstones together",
+        "caption": "User photo, 27 Dec 2025 — Pauline & Ottomar's headstones together",
         "ai": false
       },
       {
         "file": "../shared/images/IMG_7073.jpeg",
-        "caption": "Pauline's headstone alone",
-        "ai": false
-      },
-      {
-        "file": "../shared/images/IMG_7074.jpeg",
-        "caption": "Ottomar's headstone alone",
+        "caption": "User photo, 27 Dec 2025 — Pauline's headstone alone",
         "ai": false
       }
     ]
