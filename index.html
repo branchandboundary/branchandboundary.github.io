@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Field &amp; Register — Genealogical Research Projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,600;1,400&family=Literata:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/base.css">
+<style>
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 6rem;
+  }
+
+  header.hero {
+    position: relative;
+    padding-bottom: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  header.hero::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: repeating-linear-gradient(to right, var(--line) 0 6px, transparent 6px 11px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.12;
+    max-width: 12ch;
+  }
+
+  .hero p.lede {
+    font-size: 1.12rem;
+    max-width: 46ch;
+    color: var(--soil);
+    margin-top: 1rem;
+  }
+
+  .register-label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 3rem 0 0.75rem;
+  }
+
+  .register-label .eyebrow { color: var(--slate-green); }
+  .register-label .count { font-family: var(--font-mono); font-size: 0.75rem; color: var(--soil); opacity: 0.65; }
+
+  ul.registry { list-style: none; margin: 0; padding: 0; }
+
+  li.entry {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0;
+  }
+  li.entry:last-child { border-bottom: 1px solid var(--line); }
+
+  .entry a.entry-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .entry-top {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .entry-number {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--rust);
+    min-width: 2ch;
+  }
+
+  .entry-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--soil);
+    font-weight: 600;
+  }
+
+  .entry a.entry-link:hover .entry-title { color: var(--rust); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+  .status-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--slate-green);
+    color: var(--slate-green);
+    border-radius: 2px;
+  }
+
+  .entry-desc {
+    margin: 0.5rem 0 0 2.9rem;
+    color: var(--soil);
+    max-width: 56ch;
+  }
+
+  .entry-meta {
+    margin: 0.35rem 0 0 2.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--slate-green);
+  }
+
+  .empty-slot {
+    padding: 1.5rem 0 1.5rem 2.9rem;
+    color: var(--soil);
+    opacity: 0.55;
+    font-style: italic;
+    font-family: var(--font-display);
+  }
+
+  footer.site-footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--soil);
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Field &amp; Register</div>
+    <h1>A record of families,<br>traced back to their ground.</h1>
+    <p class="lede">A personal collection of genealogical research, presented as interactive maps and documents — each one following a family from its point of origin to the land it eventually settled.</p>
+  </header>
+
+  <div class="register-label">
+    <span class="eyebrow">Register of Projects</span>
+    <span class="count">01 of 01</span>
+  </div>
+
+  <ul class="registry">
+    <li class="entry">
+      <a class="entry-link" href="doschnitz-kansas/family-map/">
+        <div class="entry-top">
+          <span class="entry-number">01</span>
+          <span class="entry-title">The Bock Family: Origins, Immigration, and Settlement</span>
+          <span class="status-tag">In Progress</span>
+        </div>
+        <p class="entry-desc">Three generations, 1804–1911 — a village doctor's sons leave Thuringia for the Kansas prairie, and the land, courts, and newspapers they left behind in the record.</p>
+        <p class="entry-meta">Interactive map · 43 sourced events</p>
+      </a>
+    </li>
+
+    <li class="empty-slot">Future projects will appear here as their research is completed.</li>
+  </ul>
+
+  <footer class="site-footer">
+    Personal research project. Not indexed for search.
+  </footer>
+</div>
+</body>
+</html>

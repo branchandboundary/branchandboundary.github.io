@@ -1,0 +1,92 @@
+/* ============================================================
+   Branch & Boundary — shared design tokens
+   A genealogical-research site. Palette and type are drawn from
+   the subject itself: aged land-office paper, plat-map hairlines,
+   newspaper clippings, ink.
+   ============================================================ */
+
+:root {
+  /* Color */
+  --paper:        #EDE6D6;
+  --paper-2:      #E3DAC4;
+  --paper-dark:   #D8CBAA;
+  --ink:          #241F19;
+  --soil:         #4A3728;
+  --rust:         #9C4B33;
+  --rust-dark:    #7A3925;
+  --wheat:        #AD8329;
+  --wheat-light:  #D9B65D;
+  --slate-green:  #5F6B4F;
+  --line:         #C6B78E;
+  --line-soft:    #DACFAE;
+  --white-ish:    #FAF7EE;
+
+  /* Type */
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body:    "Literata", Georgia, serif;
+  --font-mono:    "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--soil);
+  font-weight: 600;
+  margin: 0 0 0.4em 0;
+  letter-spacing: 0.01em;
+}
+
+a { color: var(--rust-dark); }
+a:hover { color: var(--rust); }
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate-green);
+}
+
+.hairline {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+/* focus visibility (accessibility floor) */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Bock Family: Origins, Immigration, and Settlement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Literata:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/vendor/leaflet/leaflet.css">
+<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a href="../../" class="back-link">← Field &amp; Register</a>
+
+<div id="map"></div>
+
+<div id="legend-note" class="legend-note"></div>
+
+<aside id="sidepanel" class="sidepanel" aria-label="Family branches">
+  <h1 class="site-title">The Bock Family:<br>Origins, Immigration,<br>and Settlement</h1>
+  <p class="site-sub">Three generations of the Bock family, 1804–1911. Click a name to begin.</p>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" data-branch="A" role="tab" aria-selected="false">Dr. Johann Gottlob Bock <span class="tab-years">1804–1855</span></button>
+    <button class="tab" data-branch="B" role="tab" aria-selected="false">Robert Emil Bock <span class="tab-years">1840–1893</span></button>
+    <button class="tab" data-branch="C" role="tab" aria-selected="false">Ottomar Bock <span class="tab-years">1845–1909</span></button>
+  </div>
+
+  <div id="event-list" class="event-list"></div>
+</aside>
+
+<!-- Washington D.C. inset (B10) -->
+<div id="inset-panel" class="inset-panel" aria-hidden="true">
+  <div id="inset-map"></div>
+  <div class="inset-caption">Washington, D.C. — related, not visited</div>
+</div>
+
+<!-- Journey animation (ship / rail transitions between distant events) -->
+<div id="journey-overlay" class="journey-overlay" aria-hidden="true">
+  <div class="journey-caption">
+    <span id="journey-icon" class="journey-icon"></span>
+    <span id="journey-text"></span>
+  </div>
+  <div class="journey-skip">tap anywhere to skip →</div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" data-modal-close aria-label="Close and exit guided story">✕</button>
+    <div class="modal-scroll">
+      <div id="modal-carousel" class="modal-carousel"></div>
+      <div class="modal-body">
+        <div class="modal-eyebrow">
+          <span id="modal-date"></span> · <span id="modal-place"></span>
+        </div>
+        <h2 id="modal-title"></h2>
+        <p id="modal-desc" class="modal-desc"></p>
+        <p id="modal-full" class="modal-full"></p>
+        <div id="modal-further" class="modal-further"></div>
+        <div id="modal-flags" class="modal-flags"></div>
+        <p id="modal-source" class="modal-source"></p>
+        <p id="modal-closing" class="modal-closing"></p>
+      </div>
+    </div>
+    <div class="modal-nav">
+      <button data-modal-back class="nav-btn">← Back</button>
+      <span id="modal-progress" class="modal-progress"></span>
+      <button data-modal-next class="nav-btn">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script src="../../assets/vendor/leaflet/leaflet.js"></script>
+<script src="../../assets/js/map-core.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
