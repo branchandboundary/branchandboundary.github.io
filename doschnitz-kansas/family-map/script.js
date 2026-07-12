@@ -660,7 +660,11 @@
     if (card.furtherReading && card.furtherReading.length) {
       const label = card.furtherReadingLabel || "Further reading:";
       furtherEl.innerHTML = label + " " + card.furtherReading.map(f => `<a href="${f.url}" target="_blank" rel="noopener">${f.label}</a>`).join(" · ");
-    } else furtherEl.innerHTML = "";
+      furtherEl.style.display = "";
+    } else {
+      furtherEl.innerHTML = "";
+      furtherEl.style.display = "none";
+    }
 
     // Note: card.flags (sourcing caveats, open questions) is intentionally
     // not rendered — it's editorial/research metadata, not visitor-facing content.
