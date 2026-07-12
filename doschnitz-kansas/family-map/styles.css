@@ -340,6 +340,7 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 
 .modal-scroll {
   overflow-y: hidden;
+  overflow-anchor: none;
   position: relative;
   height: min(52vh, 420px);
   transition: height 0.25s ease;
@@ -361,6 +362,19 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   color: var(--rust-dark);
 }
 .modal-more:hover { color: var(--rust); }
+/* Once expanded, the button was still absolutely positioned "bottom:0"
+   relative to the scrollable area's own box -- which, once that box holds
+   more content than fits, is a fixed point partway down the *total*
+   content, not the visible bottom. That's what made it float mid-paragraph
+   once scrolled. In the expanded state it instead renders in normal
+   document flow, after everything else, like an ordinary "Collapse" link. */
+.modal-panel.is-expanded .modal-more {
+  position: static;
+  height: auto;
+  background: none;
+  padding: 0.9rem 0 0.3rem;
+  width: 100%;
+}
 
 .modal-carousel { position: relative; background: #DED5BD; }
 .modal-carousel img { width: 100%; display: block; max-height: 46vh; object-fit: contain; background: #EFE9D9; }
