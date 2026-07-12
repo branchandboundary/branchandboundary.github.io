@@ -92,6 +92,7 @@
   const modal = MapCore.createModal(modalEl);
   const legendNoteEl = document.getElementById("legend-note");
   const insetPanelEl = document.getElementById("inset-panel");
+  const ottomarPhotoEl = document.getElementById("ottomar-photo-panel");
 
   document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => selectBranch(btn.dataset.branch));
@@ -134,6 +135,10 @@
     clearSecondary();
     modal.close();
 
+    // Item 20: Ottomar's photo cutout — appears on selecting his tab, fades
+    // out as soon as an event in his story is actually opened (see goToIndex).
+    ottomarPhotoEl.classList.toggle("is-visible", branch === "C");
+
     // Scroll the remembered position into view (if any) so it's visible
     // the moment the list expands, not just highlighted off-screen.
     if (currentIndex >= 0) {
@@ -170,6 +175,16 @@
     });
   }
 
+  const DOC = "../shared/documents/";
+  const BRANCH_FURTHER_READING = {
+    A: [{ label: "Dr. Johann Gottlob Bock (1804-1855)", url: DOC + "Dr_Johann_Gottlob_Bock_V20.pdf" }],
+    B: [
+      { label: "Research Note: Robert Bock", url: DOC + "Notes_on_Robert_Bock_v12.pdf" },
+      { label: "The Rochester Circle of Robert Bock", url: DOC + "Robert_Bock_Rochester_Circle_FINAL.pdf" },
+    ],
+    C: [{ label: "Playing the Long Game: Bock Settlement and Land Acquisition in Smith County, Kansas, 1872–1921", url: DOC + "Playing_the_Long_Game__Bock_Settlement_and_Land_Acquisition_copy.pdf" }],
+  };
+
   function renderEventList() {
     document.querySelectorAll(".event-list").forEach(el => {
       if (el.dataset.branch !== currentBranch) el.innerHTML = "";
@@ -186,6 +201,24 @@
       btn.addEventListener("click", () => goToIndex(i));
       eventListEl.appendChild(btn);
     });
+
+    const readings = BRANCH_FURTHER_READING[currentBranch];
+    if (readings && readings.length) {
+      const block = document.createElement("div");
+      block.className = "branch-further-reading";
+      const items = readings.map(r => `<li><a href="${r.url}" target="_blank" rel="noopener">${r.label}</a></li>`).join("");
+      block.innerHTML = `<div class="bfr-label">Further reading</div><ul>${items}</ul>`;
+      eventListEl.appendChild(block);
+    }
+  }
+
+  // Item 18: every labeled pin shows its place name beside it. Default is
+  // "left" (away from the sidebar and the docked card, which both live on
+  // the right), flipping to "right" only when the pin sits close enough to
+  // the left edge that a left-hand label would run off-screen.
+  function labelDirectionFor(lat, lng) {
+    const pt = map.latLngToContainerPoint([lat, lng]);
+    return pt.x < 160 ? "right" : "left";
   }
 
   function renderMarkers() {
@@ -203,6 +236,8 @@
       else if (currentIndex === -1 && c.isFirst) state = "first";
       const m = L.marker([c.lat, c.lng], { icon: guidedIcon(state) });
       m.on("click", () => goToIndex(i));
+      const dir = labelDirectionFor(c.lat, c.lng);
+      m.bindTooltip(c.place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [8,0] : [-8,0] });
       m.addTo(branchLayer);
       markerRegistry[c.id] = m;
     });
@@ -216,6 +251,8 @@
         const nextUnvisited = group.find(g => g._i > currentIndex);
         goToIndex(nextUnvisited ? nextUnvisited._i : group[group.length - 1]._i);
       });
+      const dir = labelDirectionFor(group[0].lat, group[0].lng);
+      m.bindTooltip(group[0].place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [10,0] : [-10,0] });
       m.addTo(branchLayer);
       siteMarkers[key] = m;
     });
@@ -232,8 +269,12 @@
     const nextCard = bCards[nextIdx];
 
     // Paperwork-only destinations (e.g. B10, Washington) never trigger a
-    // journey — nobody in the story physically went there.
-    if (nextCard.insetOnly) { goToIndex(nextIdx); return; }
+    // journey — nobody in the story physically went there. Same for any
+    // card explicitly flagged noJourney: the automatic distance trigger has
+    // no notion of *who* made a given trip, so cards where the branch's own
+    // subject didn't personally travel (e.g. Rudy's death — Emil went, not
+    // Ottomar) need an explicit override rather than relying on distance alone.
+    if (nextCard.insetOnly || nextCard.noJourney || bCards[idx].noJourney) { goToIndex(nextIdx); return; }
 
     const origin = nextCard.embarkPoint || lastRealCard(bCards, idx);
     if (!origin) { goToIndex(nextIdx); return; }
@@ -255,6 +296,7 @@
       // last one in a burst, not the first.
       settleTimer = setTimeout(() => {
         map.off("moveend", handler);
+        renderMarkers();
         positionModal(card);
       }, 80);
     };
@@ -317,7 +359,7 @@
   let secondaryGridLayer = L.layerGroup();
   const plssCaveatEl = document.getElementById("plss-caveat");
 
-  function drawSectionGrid(layer, twp, highlightNum, quarter) {
+  function drawSectionGrid(layer, twp, highlightNum, quarter, townshipName) {
     layer.clearLayers();
     Object.keys(twp).forEach(numStr => {
       const num = +numStr;
@@ -336,6 +378,19 @@
         color: "#9C4B33", weight: 1.5, fillOpacity: 0.22, fillColor: "#9C4B33", interactive: false
       }).addTo(layer);
     }
+    if (townshipName) {
+      // Township name in block capitals, placed along the grid's top edge —
+      // enough to answer "what am I looking at" without adding real clutter,
+      // since it's just one static label, not a name per section.
+      const nw = twp[1].ne; // NE-most section's NE corner ~= township's own NE corner
+      const se = twp[31].sw; // SW-most section's SW corner ~= township's own SW corner
+      const topCenterLat = nw[0];
+      const centerLng = (nw[1] + se[1]) / 2;
+      L.marker([topCenterLat, centerLng], {
+        icon: L.divIcon({ className: "", html: `<div class="twp-label">${townshipName}</div>`, iconSize: [1,1] }),
+        interactive: false
+      }).addTo(layer);
+    }
     layer.addTo(map);
     if (plssCaveatEl) plssCaveatEl.classList.add("is-visible");
   }
@@ -347,8 +402,8 @@
   }
 
   function plssTargetForCard(card) {
-    if (card.id === "B8") return { twp: websterTwp, section: 10, quarter: "NE", zoom: 13.4 };
-    if (card.site === "site2") return { twp: websterTwp, section: 3, quarter: "SW", zoom: 13.4 };
+    if (card.id === "B8") return { twp: websterTwp, section: 10, quarter: "NE", zoom: 13.4, name: "WEBSTER TOWNSHIP" };
+    if (card.site === "site2") return { twp: websterTwp, section: 3, quarter: "SW", zoom: 13.4, name: "WEBSTER TOWNSHIP" };
     return null;
   }
 
@@ -356,6 +411,7 @@
     currentIndex = i;
     lastIndexByBranch[currentBranch] = i;
     const card = byBranch[currentBranch][i];
+    ottomarPhotoEl.classList.remove("is-visible");
     renderMarkers();
     renderEventList();
     moveMapFor(card);
@@ -393,7 +449,7 @@
       const isMobile = window.matchMedia("(max-width: 720px)").matches;
       const target = isMobile ? [card.lat, card.lng] : shiftedCenter(card.lat, card.lng, plss.zoom, 210);
       map.flyTo(target, plss.zoom, { duration: 1.1 });
-      drawSectionGrid(sectionGridLayer, plss.twp, plss.section, plss.quarter);
+      drawSectionGrid(sectionGridLayer, plss.twp, plss.section, plss.quarter, plss.name);
     } else if (card.countyZoom) {
       countyLocked[currentBranch] = true;
       map.flyTo([39.745, -98.63], 10.1, { duration: 1.3 });
@@ -405,7 +461,24 @@
     } else if (currentBranch === "A") {
       map.flyTo([card.lat, card.lng], 8, { duration: 1.0 });
     } else {
-      map.flyTo([card.lat, card.lng], card.route ? 3.4 : 5.5, { duration: 1.2 });
+      // Item 25: any Germany-based event (not just Branch A) gets a
+      // Thuringia-level zoom instead of a flat continental view, so cities
+      // can be labeled more precisely.
+      const inGermany = card.lat > 47 && card.lat < 55 && card.lng > 5 && card.lng < 16;
+      // Item 26: once Branch C's story reaches U.S. soil but hasn't yet
+      // triggered the county-zoom lock, zoom to Kansas state level rather
+      // than staying at the wide regional/continental view -- from here on
+      // the remaining events cluster closely together.
+      const inKansas = card.lat > 36.9 && card.lat < 40.1 && card.lng > -102.1 && card.lng < -94.6;
+      if (card.route) {
+        map.flyTo([card.lat, card.lng], 3.4, { duration: 1.2 });
+      } else if (inGermany) {
+        map.flyTo([card.lat, card.lng], 7.6, { duration: 1.1 });
+      } else if (inKansas) {
+        map.flyTo([card.lat, card.lng], 6.4, { duration: 1.1 });
+      } else {
+        map.flyTo([card.lat, card.lng], 5.5, { duration: 1.2 });
+      }
     }
   }
 
@@ -416,7 +489,7 @@
     // White Rock's secondary pin also gets the section-grid treatment,
     // per its own township (T2S R11W, separate from Webster Township).
     if (Math.abs(sp.lat - 39.83692) < 0.001 && Math.abs(sp.lng - (-98.50954)) < 0.001) {
-      drawSectionGrid(secondaryGridLayer, whiterockTwp, 36, "halfNEhalfSE");
+      drawSectionGrid(secondaryGridLayer, whiterockTwp, 36, "halfNEhalfSE", "WHITE ROCK TOWNSHIP");
     }
   }
   function clearSecondary() {
@@ -565,7 +638,7 @@
     const gap = 26;
     const margin = 12;
     const panelWidth = Math.min(420, window.innerWidth * 0.4, usableRight - margin * 2);
-    const estHeight = Math.min(window.innerHeight * 0.8, 560);
+    const estHeight = modalPanelEl.offsetHeight > 40 ? modalPanelEl.offsetHeight : Math.min(window.innerHeight * 0.8, 560);
 
     const roomRight = usableRight - margin - (pt.x + gap);
     const roomLeft = (pt.x - gap) - margin;
@@ -676,6 +749,29 @@
     document.getElementById("modal-progress").textContent = `${idx + 1} of ${byBranch[currentBranch].length}`;
     document.querySelector("[data-modal-back]").disabled = idx === 0;
     document.querySelector("[data-modal-next]").disabled = idx === byBranch[currentBranch].length - 1;
+
+    // Items 8/10: every card defaults to the same height; if its content
+    // doesn't fit, a "More" affordance expands it rather than every card
+    // rendering at a different height depending on how much text it has.
+    modalPanelEl.classList.remove("is-expanded");
+    const moreBtn = document.getElementById("modal-more");
+    const scrollEl = document.querySelector(".modal-scroll");
+    moreBtn.textContent = "More ▾";
+    moreBtn.setAttribute("aria-expanded", "false");
+    moreBtn.onclick = () => {
+      const expanding = !modalPanelEl.classList.contains("is-expanded");
+      modalPanelEl.classList.toggle("is-expanded", expanding);
+      moreBtn.setAttribute("aria-expanded", String(expanding));
+      moreBtn.textContent = expanding ? "Less ▴" : "More ▾";
+      if (expanding) { scrollEl.scrollTop = 0; }
+      // Panel size just changed — the docked position (and stem) were
+      // computed for the old size, so recompute them.
+      positionModal(card);
+    };
+    requestAnimationFrame(() => {
+      const overflowing = scrollEl.scrollHeight > scrollEl.clientHeight + 2;
+      moreBtn.style.display = overflowing ? "" : "none";
+    });
 
     modal.setHandlers({
       next: () => { if (idx < byBranch[currentBranch].length - 1) attemptAdvance(idx); },

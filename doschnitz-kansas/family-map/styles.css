@@ -87,11 +87,13 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 .event-list {
   flex: 0;
   min-height: 0;
+  max-height: 0;
   overflow: hidden;
 }
 .tab-group.is-active .event-list {
   flex: 1;
   min-height: 0;
+  max-height: none;
   overflow-y: auto;
   position: relative;
   margin: 0.4rem -1.1rem 0;
@@ -119,6 +121,20 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 .event-item.is-visited:not(.is-current) { opacity: 0.68; }
 .event-item .ev-year { font-family: var(--font-mono); font-size: 0.78rem; color: var(--slate-green); margin-right: 0.4em; }
 .event-item .ev-check { color: var(--wheat); margin-right: 0.35em; font-size: 0.85em; }
+
+.branch-further-reading {
+  margin: 0.9rem 0 0.3rem;
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--soil);
+}
+.branch-further-reading .bfr-label { text-transform: uppercase; letter-spacing: 0.04em; color: var(--slate-green); margin-bottom: 0.35rem; }
+.branch-further-reading ul { margin: 0; padding-left: 1.1rem; }
+.branch-further-reading li { margin-bottom: 0.3rem; }
+.branch-further-reading a { color: var(--rust-dark); }
+.branch-further-reading a:hover { color: var(--rust); }
 
 .legend-note {
   position: fixed;
@@ -191,6 +207,18 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   white-space: nowrap;
 }
 
+.twp-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--soil);
+  opacity: 0.55;
+  white-space: nowrap;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+}
+
 .approx-badge {
   font-family: var(--font-mono);
   font-size: 0.64rem;
@@ -217,6 +245,24 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 }
 .inset-panel.is-visible { opacity: 1; transform: scale(1); pointer-events: auto; }
 #inset-map { position: absolute; inset: 0 0 22px 0; }
+
+.ottomar-photo-panel {
+  position: fixed;
+  top: 18px; right: calc(min(360px, 92vw) + 18px);
+  width: min(160px, 22vw);
+  height: min(200px, 27vw);
+  z-index: 460;
+  border: 2px solid var(--paper);
+  outline: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ottomar-photo-panel.is-visible { opacity: 1; }
+.ottomar-photo-panel img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .inset-caption {
   position: absolute; left:0; right:0; bottom:0; height: 22px;
   font-family: var(--font-mono); font-size: 0.62rem; color: var(--soil);
@@ -292,7 +338,29 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   color: var(--soil);
 }
 
-.modal-scroll { overflow-y: auto; }
+.modal-scroll {
+  overflow-y: hidden;
+  position: relative;
+  height: min(52vh, 420px);
+  transition: height 0.25s ease;
+}
+.modal-panel.is-expanded .modal-scroll {
+  height: auto;
+  max-height: 78vh;
+  overflow-y: auto;
+}
+.modal-more {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, rgba(250,247,238,0) 0%, var(--white-ish) 60%);
+  border: none; cursor: pointer;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 10px;
+  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
+  color: var(--rust-dark);
+}
+.modal-more:hover { color: var(--rust); }
 
 .modal-carousel { position: relative; background: #DED5BD; }
 .modal-carousel img { width: 100%; display: block; max-height: 46vh; object-fit: contain; background: #EFE9D9; }
@@ -411,6 +479,7 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
   }
   #map { bottom: 42vh; transition: bottom 0.2s ease; }
   .inset-panel { right: 12px; top: 12px; width: 140px; height: 100px; }
+  .ottomar-photo-panel { right: 12px; top: 12px; width: 96px; height: 120px; }
 
   /* Bottom sheet: map (with the active pin) stays visible above it, instead
      of the sheet eating the whole screen. The persistent tab/event-list
@@ -418,6 +487,10 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
      and the map don't have to fight the sidebar for the same space. */
   .modal { right: 0; bottom: 0; padding: 0; align-items: flex-end; }
   .modal-panel { max-height: 46vh; border-radius: 10px 10px 0 0; width: 100%; max-width: 100%; }
+  .modal-scroll { height: min(28vh, 230px); }
+  .modal-panel.is-expanded .modal-scroll { max-height: 38vh; }
+  .modal-scroll { height: min(28vh, 220px); }
+  .modal-panel.is-expanded .modal-scroll { max-height: 38vh; }
   .modal-stem { display: none !important; }
 
   body.modal-open-mobile .sidepanel { display: none; }

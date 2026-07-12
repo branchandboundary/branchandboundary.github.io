@@ -46,6 +46,11 @@
   <div class="inset-caption">Washington, D.C. — related, not visited</div>
 </div>
 
+<!-- Ottomar's photo cutout, shown on selecting his tab, fades out once his story begins -->
+<div id="ottomar-photo-panel" class="ottomar-photo-panel" aria-hidden="true">
+  <img src="../shared/images/Ottomar_Bock.jpg" alt="Studio portrait of Ottomar Bock">
+</div>
+
 <!-- Journey animation (ship / rail transitions between distant events) -->
 <div id="journey-overlay" class="journey-overlay" aria-hidden="true">
   <div class="journey-caption">
@@ -73,6 +78,7 @@
         <p id="modal-source" class="modal-source"></p>
         <p id="modal-closing" class="modal-closing"></p>
       </div>
+      <button id="modal-more" class="modal-more" style="display:none" aria-expanded="false">More ▾</button>
     </div>
     <div class="modal-nav">
       <button data-modal-back class="nav-btn">← Back</button>
