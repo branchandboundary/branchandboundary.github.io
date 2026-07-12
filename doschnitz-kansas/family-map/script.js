@@ -83,10 +83,13 @@
   let currentBranch = null;
   let currentIndex = -1;
   const countyLocked = { A:false, B:false, C:false };
+  // Remembers where you left off in each person's story, so closing a card
+  // and clicking that name again picks up where you were instead of
+  // resetting to the top every time.
+  const lastIndexByBranch = { A:-1, B:-1, C:-1 };
 
   const modalEl = document.getElementById("modal");
   const modal = MapCore.createModal(modalEl);
-  const eventListEl = document.getElementById("event-list");
   const legendNoteEl = document.getElementById("legend-note");
   const insetPanelEl = document.getElementById("inset-panel");
 
@@ -94,20 +97,49 @@
     btn.addEventListener("click", () => selectBranch(btn.dataset.branch));
   });
 
+  // Every bounds-fitting map move (fitBounds/flyToBounds) needs to reserve
+  // screen space for the sidebar overlay, or the eastern/bottom edge of
+  // whatever's being fitted silently ends up hidden underneath it — worse
+  // at narrower windows, where the sidebar is a bigger fraction of the
+  // total width. Leaflet's own container size doesn't know about the
+  // sidebar since it's a separate fixed-position overlay, not a resize of
+  // the map div itself.
+  function mapPadding() {
+    const isMobile = window.matchMedia("(max-width: 720px)").matches;
+    if (isMobile) {
+      return { paddingTopLeft: [10, 60], paddingBottomRight: [10, window.innerHeight * 0.42 + 10] };
+    }
+    const sidebarWidth = Math.min(360, window.innerWidth * 0.92);
+    return { paddingTopLeft: [10, 60], paddingBottomRight: [sidebarWidth + 16, 10] };
+  }
+
   function selectBranch(branch) {
     currentBranch = branch;
-    currentIndex = -1;
+    // Resume where this branch was last left, rather than always resetting
+    // to the top of the list.
+    currentIndex = lastIndexByBranch[branch];
     countyLocked[branch] = countyLocked[branch] || false;
     document.querySelectorAll(".tab").forEach(b => {
       const active = b.dataset.branch === branch;
       b.classList.toggle("is-active", active);
       b.setAttribute("aria-selected", active ? "true" : "false");
+      b.setAttribute("aria-expanded", active ? "true" : "false");
+    });
+    document.querySelectorAll(".tab-group").forEach(g => {
+      g.classList.toggle("is-active", g.dataset.branch === branch);
     });
     renderEventList();
     renderMarkers();
     hideInset();
     clearSecondary();
     modal.close();
+
+    // Scroll the remembered position into view (if any) so it's visible
+    // the moment the list expands, not just highlighted off-screen.
+    if (currentIndex >= 0) {
+      const activeItem = document.querySelector(`.event-list[data-branch="${branch}"] .event-item.is-current`);
+      activeItem && activeItem.scrollIntoView({ block: "nearest" });
+    }
 
     // Regional framing
     const bCards = byBranch[branch];
@@ -119,17 +151,38 @@
       showLegend("Principality boundaries are approximate — hand-fitted to the modern Thuringia state outline, the closest available proxy for the pre-1871 Schwarzburg-Rudolstadt principality.");
     } else {
       const group = L.featureGroup(bCards.map(c => L.marker([c.lat, c.lng])));
-      map.flyToBounds(group.getBounds().pad(0.5), { duration: 1.1 });
+      map.flyToBounds(group.getBounds().pad(0.5), { duration: 1.1, ...mapPadding() });
       hideLegend();
     }
   }
 
+  // Collapses the accordion entirely — back to three flat names, none
+  // expanded — so picking a different person starts from a clean state
+  // rather than leaving the previous person's list open underneath them.
+  // The remembered position (lastIndexByBranch) is untouched by this, so
+  // reopening the same name later resumes rather than restarting.
+  function collapseAccordion() {
+    document.querySelectorAll(".tab-group").forEach(g => g.classList.remove("is-active"));
+    document.querySelectorAll(".tab").forEach(b => {
+      b.classList.remove("is-active");
+      b.setAttribute("aria-selected", "false");
+      b.setAttribute("aria-expanded", "false");
+    });
+  }
+
   function renderEventList() {
+    document.querySelectorAll(".event-list").forEach(el => {
+      if (el.dataset.branch !== currentBranch) el.innerHTML = "";
+    });
+    const eventListEl = document.querySelector(`.event-list[data-branch="${currentBranch}"]`);
     eventListEl.innerHTML = "";
     byBranch[currentBranch].forEach((c, i) => {
       const btn = document.createElement("button");
-      btn.className = "event-item" + (i === currentIndex ? " is-current" : "");
-      btn.innerHTML = `<span class="ev-year">${c.date.match(/\d{4}/) ? c.date.match(/\d{4}/)[0] : c.date}</span>${c.tagline} — ${c.place}`;
+      const isVisited = i < currentIndex;
+      const isCurrent = i === currentIndex;
+      btn.className = "event-item" + (isCurrent ? " is-current" : "") + (isVisited ? " is-visited" : "");
+      const check = isVisited ? `<span class="ev-check" aria-hidden="true">✓</span>` : "";
+      btn.innerHTML = `${check}<span class="ev-year">${c.date.match(/\d{4}/) ? c.date.match(/\d{4}/)[0] : c.date}</span>${c.tagline} — ${c.place}`;
       btn.addEventListener("click", () => goToIndex(i));
       eventListEl.appendChild(btn);
     });
@@ -301,6 +354,7 @@
 
   function goToIndex(i) {
     currentIndex = i;
+    lastIndexByBranch[currentBranch] = i;
     const card = byBranch[currentBranch][i];
     renderMarkers();
     renderEventList();
@@ -310,6 +364,18 @@
     openModal(card);
     positionModal(card);
     repositionWhenSettled(card);
+  }
+
+  // For the PLSS section-grid cards specifically: centering the map exactly
+  // on the pin means the docked card (which docks immediately beside it)
+  // ends up covering whatever's directly next to the highlighted section --
+  // on a 6-wide township grid, that's most of what's worth seeing. Shifting
+  // the map's actual center point (not just widening the gap to the panel)
+  // means there's genuinely more of the township visible on the side the
+  // panel docks on, not just the same amount of grid pushed further away.
+  function shiftedCenter(lat, lng, zoom, dxPixels) {
+    const pt = map.project([lat, lng], zoom);
+    return map.unproject([pt.x + dxPixels, pt.y], zoom);
   }
 
   function moveMapFor(card) {
@@ -324,7 +390,9 @@
     if (plss) {
       countyLocked[currentBranch] = true;
       if (card.countyZoom) showLegend("Zoomed to Smith County, Kansas — includes Kirwin and Smith Centre for context.");
-      map.flyTo([card.lat, card.lng], plss.zoom, { duration: 1.1 });
+      const isMobile = window.matchMedia("(max-width: 720px)").matches;
+      const target = isMobile ? [card.lat, card.lng] : shiftedCenter(card.lat, card.lng, plss.zoom, 210);
+      map.flyTo(target, plss.zoom, { duration: 1.1 });
       drawSectionGrid(sectionGridLayer, plss.twp, plss.section, plss.quarter);
     } else if (card.countyZoom) {
       countyLocked[currentBranch] = true;
@@ -424,7 +492,7 @@
     document.body.classList.add("journey-active");
 
     const bounds = L.latLngBounds([origin.lat, origin.lng], [dest.lat, dest.lng]);
-    map.flyToBounds(bounds.pad(0.35), { duration: 0.8 });
+    map.flyToBounds(bounds.pad(0.35), { duration: 0.8, ...mapPadding() });
 
     journeyLine = L.polyline([[origin.lat, origin.lng], [dest.lat, dest.lng]], {
       color: "#5F6B4F", weight: 2, dashArray: "6 8", opacity: 0.85
@@ -585,12 +653,13 @@
     document.getElementById("modal-title").textContent = card.tagline;
 
     const descEl = document.getElementById("modal-desc");
-    descEl.innerHTML = applyCrossRefs(card.desc, card.crossRefs);
+    descEl.innerHTML = boldFirstPlaceMention(applyCrossRefs(card.desc, card.crossRefs), card.place);
     document.getElementById("modal-full").innerHTML = card.full || "";
 
     const furtherEl = document.getElementById("modal-further");
     if (card.furtherReading && card.furtherReading.length) {
-      furtherEl.innerHTML = "Further reading: " + card.furtherReading.map(f => `<a href="${f.url}" target="_blank" rel="noopener">${f.label}</a>`).join(" · ");
+      const label = card.furtherReadingLabel || "Further reading:";
+      furtherEl.innerHTML = label + " " + card.furtherReading.map(f => `<a href="${f.url}" target="_blank" rel="noopener">${f.label}</a>`).join(" · ");
     } else furtherEl.innerHTML = "";
 
     // Note: card.flags (sourcing caveats, open questions) is intentionally
@@ -611,7 +680,8 @@
         clearSecondary(); hideInset(); renderMarkers();
         modalStemEl.classList.remove("is-visible");
         document.body.classList.remove("modal-open-mobile");
-      }
+      },
+      onUserClose: () => collapseAccordion()
     });
     modal.open();
     MapCore.initCrossRefPopovers(descEl, (targetBranch) => selectBranch(targetBranch));
@@ -625,6 +695,32 @@
       out = out.replace(re, `<span class="crossref" tabindex="0" data-branch="${cr.branch}" data-text="${cr.text.replace(/"/g,'&quot;')}">${cr.name}</span>`);
     });
     return out;
+  }
+
+  // Bold the first mention of the card's active location in the rendered
+  // text, so a reader whose eyes are on the modal (not the map/sidebar)
+  // doesn't lose track of where the current event is happening. Tries the
+  // full place label first, then falls back to simpler pieces of it (for
+  // route-style or compound labels like "Hamburg → New York" or
+  // "Site 2 — SW¼ Sec. 3, Webster Twp.") since the prose usually names the
+  // place more plainly than the label does. If nothing matches, the text
+  // is left unchanged rather than guessing wrong.
+  function boldFirstPlaceMention(html, placeLabel) {
+    if (!placeLabel) return html;
+    const candidates = [placeLabel];
+    placeLabel.split("→").forEach(p => p.trim() && candidates.push(p.trim()));
+    placeLabel.split("—").forEach(p => p.trim() && candidates.push(p.trim()));
+    placeLabel.split(",").forEach(p => p.trim() && candidates.push(p.trim()));
+    for (const cand of candidates) {
+      if (!cand || cand.length < 3) continue;
+      const idx = html.indexOf(cand);
+      if (idx === -1) continue;
+      // Don't bold inside an existing tag's attributes/content boundary.
+      const before = html.slice(0, idx);
+      if ((before.match(/</g) || []).length !== (before.match(/>/g) || []).length) continue;
+      return before + "<strong>" + cand + "</strong>" + html.slice(idx + cand.length);
+    }
+    return html;
   }
 
   function renderCarousel(card) {
@@ -645,6 +741,6 @@
 
   // ---------------- Opening view (before any tab is chosen) ----------------
   // California coast to Germany, one continuous frame — no branch selected yet.
-  map.fitBounds([[27, -124], [56, 16]]);
+  map.fitBounds([[27, -124], [56, 16]], mapPadding());
   showLegend("Germany's borders shown here follow the 1885 German Empire — Germany did not exist as a unified state until 1871. Click a name in the panel to begin that person's story.");
 })();

@@ -28,7 +28,7 @@ const MapCore = (() => {
 
   /** Modal controller: focus-trapping, Escape-to-close, Next/Back wiring. */
   function createModal(rootEl) {
-    let onNext = null, onBack = null, onClose = null;
+    let onNext = null, onBack = null, onClose = null, onUserClose = null;
     const closeBtn = rootEl.querySelector("[data-modal-close]");
     const nextBtn = rootEl.querySelector("[data-modal-next]");
     const backBtn = rootEl.querySelector("[data-modal-back]");
@@ -45,8 +45,12 @@ const MapCore = (() => {
       document.removeEventListener("keydown", onKeydown);
       onClose && onClose();
     }
+    function userClose() {
+      close();
+      onUserClose && onUserClose();
+    }
     function onKeydown(e) {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") userClose();
       if (e.key === "ArrowRight") onNext && onNext();
       if (e.key === "ArrowLeft") onBack && onBack();
       if (e.key === "Tab") {
@@ -57,14 +61,16 @@ const MapCore = (() => {
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     }
-    closeBtn && closeBtn.addEventListener("click", close);
+    closeBtn && closeBtn.addEventListener("click", userClose);
     nextBtn && nextBtn.addEventListener("click", () => onNext && onNext());
     backBtn && backBtn.addEventListener("click", () => onBack && onBack());
-    rootEl.addEventListener("click", (e) => { if (e.target === rootEl) close(); });
+    rootEl.addEventListener("click", (e) => { if (e.target === rootEl) userClose(); });
 
     return {
       open, close,
-      setHandlers({ next, back, onClose: closeCb }) { onNext = next; onBack = back; onClose = closeCb; }
+      setHandlers({ next, back, onClose: closeCb, onUserClose: userCloseCb }) {
+        onNext = next; onBack = back; onClose = closeCb; onUserClose = userCloseCb;
+      }
     };
   }
 

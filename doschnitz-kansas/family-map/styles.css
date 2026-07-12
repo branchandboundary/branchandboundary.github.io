@@ -56,7 +56,10 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   margin: 0.4rem 0 1rem;
 }
 
-.tabs { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.5rem; }
+.tabs { display: flex; flex-direction: column; flex: 1; min-height: 0; gap: 0.4rem; margin-bottom: 0.5rem; }
+
+.tab-group { display: flex; flex-direction: column; min-height: 0; flex: 0 0 auto; }
+.tab-group.is-active { flex: 1; min-height: 0; }
 
 .tab {
   text-align: left;
@@ -69,17 +72,29 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   cursor: pointer;
   color: var(--soil);
   transition: background 0.15s ease, border-color 0.15s ease;
+  flex: 0 0 auto;
 }
 .tab .tab-years { display: block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--slate-green); margin-top: 0.15rem; }
 .tab:hover { border-color: var(--rust); }
 .tab.is-active { background: var(--soil); color: var(--white-ish); border-color: var(--soil); }
 .tab.is-active .tab-years { color: var(--wheat-light); }
 
+/* Each tab's own event list — collapsed (zero content, zero height) unless
+   its tab-group is the active one. This is what makes the list "pop down
+   immediately beneath the name" that was actually clicked, instead of
+   always rendering in one fixed spot beneath the last tab regardless of
+   which person is selected. */
 .event-list {
+  flex: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.tab-group.is-active .event-list {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
   position: relative;
-  margin: 0.5rem -1.1rem 0;
+  margin: 0.4rem -1.1rem 0;
   padding: 0.25rem 1.1rem 2rem;
   mask-image: linear-gradient(to bottom, black calc(100% - 40px), transparent 100%);
 }
@@ -101,7 +116,9 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 }
 .event-item:hover { opacity: 0.85; }
 .event-item.is-current { opacity: 1; font-weight: 600; color: var(--rust-dark); }
+.event-item.is-visited:not(.is-current) { opacity: 0.68; }
 .event-item .ev-year { font-family: var(--font-mono); font-size: 0.78rem; color: var(--slate-green); margin-right: 0.4em; }
+.event-item .ev-check { color: var(--wheat); margin-right: 0.35em; font-size: 0.85em; }
 
 .legend-note {
   position: fixed;
@@ -131,7 +148,16 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 }
 .pin-guided.is-first { animation: pulse 1.6s ease-in-out infinite; }
 .pin-guided.is-visited { background: #B5A98A; opacity: 0.75; }
-.pin-guided.is-current { background: var(--wheat); width: 24px; height: 24px; }
+.pin-guided.is-current {
+  background: var(--wheat); width: 24px; height: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 0 0 6px rgba(217,182,93,0.35), 0 0 16px 4px rgba(217,182,93,0.55);
+  animation: glow 1.8s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 0 0 6px rgba(217,182,93,0.3), 0 0 14px 3px rgba(217,182,93,0.45); }
+  50%      { box-shadow: 0 1px 4px rgba(0,0,0,0.4), 0 0 0 8px rgba(217,182,93,0.4), 0 0 20px 6px rgba(217,182,93,0.65); }
+}
 
 @keyframes pulse {
   0%, 100% { transform: rotate(45deg) scale(1); }
@@ -178,7 +204,7 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   top: 18px; right: calc(min(360px, 92vw) + 18px);
   width: min(220px, 30vw);
   height: min(160px, 22vw);
-  z-index: 420;
+  z-index: 910;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -208,7 +234,13 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   position: fixed;
   top: 0; left: 0; bottom: 0;
   right: min(360px, 92vw);
-  background: rgba(36, 31, 25, 0.55);
+  /* A subtle warm-gray tint — enough to visually separate the active card
+     from the map behind it, but light enough that the map (and any
+     secondary pins/labels on it, e.g. Gräfinau at A6) stays legible. The
+     old rgba(36,31,25,0.55) was left over from the pre-redesign full-screen
+     modal and was too dark for a layout where the map is meant to stay
+     readable while a card is open. */
+  background: rgba(74, 63, 50, 0.12);
   display: flex; align-items: center; justify-content: center;
   z-index: 900;
   opacity: 0; pointer-events: none;
@@ -278,7 +310,7 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 .ai-badge { font-family: var(--font-mono); font-size: 0.6rem; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.06em; }
 
 .modal-body { padding: 1.3rem 1.5rem 1.5rem; }
-.modal-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; color: var(--slate-green); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.3rem; }
+.modal-eyebrow { font-family: var(--font-mono); font-size: 0.92rem; font-weight: 600; color: var(--soil); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
 #modal-title { font-size: 1.5rem; font-style: italic; }
 .modal-desc { font-size: 1.02rem; }
 .modal-full { color: var(--soil); font-size: 0.95rem; }

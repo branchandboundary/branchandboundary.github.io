@@ -25,12 +25,19 @@
   <p class="site-sub">Three generations of the Bock family, 1804–1911. Click a name to begin.</p>
 
   <div class="tabs" role="tablist">
-    <button class="tab" data-branch="A" role="tab" aria-selected="false">Dr. Johann Gottlob Bock <span class="tab-years">1804–1855</span></button>
-    <button class="tab" data-branch="B" role="tab" aria-selected="false">Robert Emil Bock <span class="tab-years">1840–1893</span></button>
-    <button class="tab" data-branch="C" role="tab" aria-selected="false">Ottomar Bock <span class="tab-years">1845–1909</span></button>
+    <div class="tab-group" data-branch="A">
+      <button class="tab" data-branch="A" role="tab" aria-selected="false" aria-expanded="false" aria-controls="event-list-A">Dr. Johann Gottlob Bock <span class="tab-years">1804–1855</span></button>
+      <div class="event-list" data-branch="A" id="event-list-A"></div>
+    </div>
+    <div class="tab-group" data-branch="B">
+      <button class="tab" data-branch="B" role="tab" aria-selected="false" aria-expanded="false" aria-controls="event-list-B">Robert Emil Bock <span class="tab-years">1840–1893</span></button>
+      <div class="event-list" data-branch="B" id="event-list-B"></div>
+    </div>
+    <div class="tab-group" data-branch="C">
+      <button class="tab" data-branch="C" role="tab" aria-selected="false" aria-expanded="false" aria-controls="event-list-C">Ottomar Bock <span class="tab-years">1845–1909</span></button>
+      <div class="event-list" data-branch="C" id="event-list-C"></div>
+    </div>
   </div>
-
-  <div id="event-list" class="event-list"></div>
 </aside>
 
 <!-- Washington D.C. inset (B10) -->
