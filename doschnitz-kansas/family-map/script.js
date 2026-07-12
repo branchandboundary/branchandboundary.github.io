@@ -236,8 +236,13 @@
       else if (currentIndex === -1 && c.isFirst) state = "first";
       const m = L.marker([c.lat, c.lng], { icon: guidedIcon(state) });
       m.on("click", () => goToIndex(i));
-      const dir = labelDirectionFor(c.lat, c.lng);
-      m.bindTooltip(c.place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [8,0] : [-8,0] });
+      // Only the pin actually being viewed right now gets a label. Labeling
+      // every pin regardless of zoom is what caused illegible overlapping
+      // text at wide/zoomed-out views where several pins sit close together.
+      if (state === "current") {
+        const dir = labelDirectionFor(c.lat, c.lng);
+        m.bindTooltip(c.place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [8,0] : [-8,0] });
+      }
       m.addTo(branchLayer);
       markerRegistry[c.id] = m;
     });
@@ -251,8 +256,11 @@
         const nextUnvisited = group.find(g => g._i > currentIndex);
         goToIndex(nextUnvisited ? nextUnvisited._i : group[group.length - 1]._i);
       });
-      const dir = labelDirectionFor(group[0].lat, group[0].lng);
-      m.bindTooltip(group[0].place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [10,0] : [-10,0] });
+      const isCurrentGroup = group.some(g => g._i === currentIndex);
+      if (isCurrentGroup) {
+        const dir = labelDirectionFor(group[0].lat, group[0].lng);
+        m.bindTooltip(group[0].place, { permanent: true, direction: dir, className: "pin-label", offset: dir === "right" ? [10,0] : [-10,0] });
+      }
       m.addTo(branchLayer);
       siteMarkers[key] = m;
     });

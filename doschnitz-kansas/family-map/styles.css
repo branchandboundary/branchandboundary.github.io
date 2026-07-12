@@ -328,7 +328,7 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 .modal-close {
   position: absolute;
   top: 0.6rem; right: 0.7rem;
-  z-index: 5;
+  z-index: 20;
   background: rgba(255,255,255,0.85);
   border: 1px solid var(--line);
   border-radius: 50%;
@@ -377,9 +377,16 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
 }
 .ai-badge { font-family: var(--font-mono); font-size: 0.6rem; color: var(--rust-dark); text-transform: uppercase; letter-spacing: 0.06em; }
 
-.modal-body { padding: 1.3rem 1.5rem 1.5rem; }
+.modal-header-fixed {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--white-ish);
+  padding: 1.3rem 1.5rem 0.6rem;
+}
+.modal-body { padding: 0 1.5rem 1.5rem; }
 .modal-eyebrow { font-family: var(--font-mono); font-size: 0.92rem; font-weight: 600; color: var(--soil); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
-#modal-title { font-size: 1.5rem; font-style: italic; }
+#modal-title { font-size: 1.5rem; font-style: italic; margin: 0; }
 .modal-desc { font-size: 1.02rem; }
 .modal-full { color: var(--soil); font-size: 0.95rem; }
 .modal-further { font-size: 0.85rem; color: var(--slate-green); margin: 1rem 0; padding-top: 0.6rem; border-top: 1px solid var(--line-soft); }
@@ -487,8 +494,6 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
      and the map don't have to fight the sidebar for the same space. */
   .modal { right: 0; bottom: 0; padding: 0; align-items: flex-end; }
   .modal-panel { max-height: 46vh; border-radius: 10px 10px 0 0; width: 100%; max-width: 100%; }
-  .modal-scroll { height: min(28vh, 230px); }
-  .modal-panel.is-expanded .modal-scroll { max-height: 38vh; }
   .modal-scroll { height: min(28vh, 220px); }
   .modal-panel.is-expanded .modal-scroll { max-height: 38vh; }
   .modal-stem { display: none !important; }
