@@ -758,41 +758,18 @@
     document.querySelector("[data-modal-back]").disabled = idx === 0;
     document.querySelector("[data-modal-next]").disabled = idx === byBranch[currentBranch].length - 1;
 
-    // Items 8/10: every card defaults to the same height; if its content
-    // doesn't fit, a "More" affordance expands it rather than every card
-    // rendering at a different height depending on how much text it has.
-    modalPanelEl.classList.remove("is-expanded");
-    const moreBtn = document.getElementById("modal-more");
+    // Item 8/10: every card is a fixed height, always. If content doesn't
+    // fit, it just scrolls -- a non-interactive fade hints there's more
+    // below. No expand/collapse state, so no transition timing or
+    // repositioning-after-resize to get wrong.
     const scrollEl = document.querySelector(".modal-scroll");
-    // A new card always starts scrolled to the top. Without this, a scroll
-    // position carried over from a previous (possibly expanded) card could
-    // land a freshly-opened, collapsed card mid-paragraph with no way to
-    // scroll back to the start, since collapsed cards intentionally don't
-    // scroll on their own (that's what "More" is for).
+    // A new card always starts scrolled to the top -- without this, a
+    // scroll position carried over from a previous card could land a
+    // freshly-opened card mid-paragraph.
     scrollEl.scrollTop = 0;
-    moreBtn.blur();
-    moreBtn.textContent = "More ▾";
-    moreBtn.setAttribute("aria-expanded", "false");
-    moreBtn.onclick = () => {
-      const expanding = !modalPanelEl.classList.contains("is-expanded");
-      modalPanelEl.classList.toggle("is-expanded", expanding);
-      moreBtn.setAttribute("aria-expanded", String(expanding));
-      moreBtn.textContent = expanding ? "Less ▴" : "More ▾";
-      if (expanding) { scrollEl.scrollTop = 0; }
-      // Panel size just changed — the docked position (and stem) were
-      // computed for the old size, so recompute them. Reposition once
-      // right away (covers most of the change instantly) and again after
-      // the CSS height transition finishes, since offsetHeight read
-      // immediately after toggling the class still reflects the
-      // pre-transition size, not the final one -- without this second
-      // pass, an expanded card could be positioned tall enough to run
-      // past the bottom of the viewport.
-      positionModal(card);
-      setTimeout(() => positionModal(card), 260);
-    };
     requestAnimationFrame(() => {
       const overflowing = scrollEl.scrollHeight > scrollEl.clientHeight + 2;
-      moreBtn.style.display = overflowing ? "" : "none";
+      scrollEl.classList.toggle("has-overflow", overflowing);
     });
 
     modal.setHandlers({

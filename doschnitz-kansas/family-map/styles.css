@@ -338,43 +338,32 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   color: var(--soil);
 }
 
+/* Every card is a fixed height, always -- no expand/collapse state, no
+   transition timing to get wrong, no button whose position math can drift
+   out of sync with the content. If it doesn't fit, it just scrolls, the
+   same way any normal scrollable panel would. */
 .modal-scroll {
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-anchor: none;
   position: relative;
   height: min(52vh, 420px);
-  transition: height 0.25s ease;
 }
-.modal-panel.is-expanded .modal-scroll {
-  height: auto;
-  max-height: 78vh;
-  overflow-y: auto;
+
+/* Non-interactive hint that there's more below -- sticky (not absolute),
+   so it always tracks the true visible bottom of the scrolling viewport
+   rather than a fixed point in the total content. pointer-events:none
+   means it can never block a click on the text under it, unlike the old
+   button it replaces. */
+.modal-scroll-fade {
+  position: sticky;
+  bottom: 0; left: 0; right: 0;
+  height: 36px;
+  margin-top: -36px;
+  background: linear-gradient(to bottom, rgba(250,247,238,0), var(--white-ish) 85%);
+  pointer-events: none;
+  display: none;
 }
-.modal-more {
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 64px;
-  background: linear-gradient(to bottom, rgba(250,247,238,0) 0%, var(--white-ish) 60%);
-  border: none; cursor: pointer;
-  display: flex; align-items: flex-end; justify-content: center;
-  padding-bottom: 10px;
-  font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600;
-  color: var(--rust-dark);
-}
-.modal-more:hover { color: var(--rust); }
-/* Once expanded, the button was still absolutely positioned "bottom:0"
-   relative to the scrollable area's own box -- which, once that box holds
-   more content than fits, is a fixed point partway down the *total*
-   content, not the visible bottom. That's what made it float mid-paragraph
-   once scrolled. In the expanded state it instead renders in normal
-   document flow, after everything else, like an ordinary "Collapse" link. */
-.modal-panel.is-expanded .modal-more {
-  position: static;
-  height: auto;
-  background: none;
-  padding: 0.9rem 0 0.3rem;
-  width: 100%;
-}
+.modal-scroll.has-overflow .modal-scroll-fade { display: block; }
 
 .modal-carousel { position: relative; background: #DED5BD; }
 .modal-carousel img { width: 100%; display: block; max-height: 46vh; object-fit: contain; background: #EFE9D9; }
@@ -509,7 +498,6 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
   .modal { right: 0; bottom: 0; padding: 0; align-items: flex-end; }
   .modal-panel { max-height: 46vh; border-radius: 10px 10px 0 0; width: 100%; max-width: 100%; }
   .modal-scroll { height: min(28vh, 220px); }
-  .modal-panel.is-expanded .modal-scroll { max-height: 38vh; }
   .modal-stem { display: none !important; }
 
   body.modal-open-mobile .sidepanel { display: none; }
