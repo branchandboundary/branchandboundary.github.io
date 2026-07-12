@@ -20,6 +20,15 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   box-shadow: 0 1px 4px rgba(0,0,0,0.25);
 }
 
+/* Leaflet's default zoom control sits at top:10/left:10 by default, which
+   overlaps the back-link above (both were rendering in the same top-left
+   corner, with the "+" button hidden underneath the back-link on every
+   screen size, not just mobile — just less noticeable on a wide desktop
+   viewport). Push the control down clear of the back-link instead. */
+.leaflet-top.leaflet-left {
+  top: 56px !important;
+}
+
 /* ---------------- Side panel ---------------- */
 .sidepanel {
   position: fixed;
@@ -363,7 +372,11 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
 .plss-caveat.is-visible { display: block; }
 
 @media (max-width: 720px) {
-  .sidepanel { width: 100%; height: 42vh; top: auto; bottom: 0; border-left: none; border-top: 1px solid var(--line); }
+  .sidepanel {
+    width: 100%; height: 42vh; top: auto; bottom: 0; border-left: none; border-top: 1px solid var(--line);
+    overflow-y: auto;
+    mask-image: linear-gradient(to bottom, black calc(100% - 28px), transparent 100%);
+  }
   #map { bottom: 42vh; transition: bottom 0.2s ease; }
   .inset-panel { right: 12px; top: 12px; width: 140px; height: 100px; }
 

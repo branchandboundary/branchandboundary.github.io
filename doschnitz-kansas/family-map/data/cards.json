@@ -470,10 +470,10 @@
     "place": "Döschnitz",
     "lat": 50.6167,
     "lng": 11.2333,
-    "desc": "Daughter Clara born, out of wedlock, with a lifelong intellectual disability.",
-    "full": "A 1909 Smith County guardianship notice describes her, in the era's own clinical language, as \"feeble minded\"; her 1939 obituary states she was \"an invalid, never being able to attend school, but she learned to do many things with her hands to help her mother.\" Her niece Maxine, in her own family recollections, recalled Clara paring vegetables and fruit and running the household's hand washer for the family's eleven members — capable within a limited domestic sphere, never independent of it. She remained in her parents' household for the whole of their lives.",
-    "source": "Baptismal record, Bild 7; Smith County Pioneer, 2 Dec 1909, p. 5 (guardianship notice); Clara's 1939 obituary and Maxine Bock Mansholt's own recollections, both in Bock Mansholt, \"Bock Family Genealogy\" (1976–78)",
-    "flags": "Two independent German sources — the Döschnitz-Meura parish register and the 1885 Thüringisches Staatsarchiv Rudolstadt emigration database — agree Clara was born in 1868. Her headstone at North Oak Creek Cemetery instead gives 1869, a full year off, and is the only source among the three that isn't German. No document explains the discrepancy; most plausibly a lapse in family memory of the exact year after decades and an ocean's remove, rather than a documented correction.",
+    "desc": "Daughter Clara is born, out of wedlock, with a lifelong intellectual disability.",
+    "full": "A 1909 Smith County guardianship notice describes her, in the era’s own clinical language, as “feeble minded”; her own obituary states she was “an invalid, never being able to attend school, but she learned to do many things with her hands to help her mother.” Her niece Maxine, in her own family recollections, recalled Clara paring vegetables and fruit and running the household’s hand washer for the family’s eleven members — capable within a limited domestic sphere, never independent of it. She remains in her parents’ household for the whole of their lives; after Pauline’s 1911 death, her own obituary states she “went to the home in Winfield for children of her invalid nature,” where she remains until her death on 12 April 1939. Gottlob’s own 1936 obituary, listing her among his surviving siblings as “Clara Bock of Winfield, Kansas,” independently confirms her residence there five years before her death; family visits to her at Winfield are further documented across a 25-year span, from a 1914 Winfield Daily Courier item noting Ella Bock’s visit to a 1918 Smith County Pioneer item describing a visit with “her sister-in-law, Miss Clara Bock.”",
+    "source": "Baptismal record, Bild 7; Clara’s obituary, 12 Apr 1939 (reprinted in Bock Mansholt, \"Bock Family Genealogy,\" 1976–78); 1909 guardianship notice, Smith County Pioneer, 2 Dec 1909, p. 5; Gottlob O. Bock obituary, 1936; Winfield Daily Courier, 9 Jun 1914; Smith County Pioneer, Jan. 1918",
+    "flags": "Two independent German sources — the Döschnitz-Meura parish register and the 1885 Thüringisches Staatsarchiv Rudolstadt emigration database — agree Clara was born in 1868. Her headstone at North Oak Creek Cemetery instead gives 1869, a full year off, and is the only source among the three that isn’t German. No document explains the discrepancy.",
     "images": []
   },
   {
@@ -498,10 +498,10 @@
     "place": "Königsee",
     "lat": 50.65,
     "lng": 11.1667,
-    "desc": "Clara formally legitimized by rescript of the Fürstliches Justizamt, following the marriage",
-    "full": "",
+    "desc": "Clara is formally legitimized by rescript of the Fürstliches Justizamt, following the marriage.",
+    "full": "Clara had been born in June 1868, three years before Ottomar and Pauline’s marriage in August 1871. Under the civil law then governing the principality, a child born before its parents’ marriage did not become legitimate automatically when they later wed — legitimation required a separate formal petition and grant, here issued by the princely court of justice at Königsee. Once Ottomar and Pauline married, Ottomar was able to obtain this rescript, formally establishing Clara’s legitimacy and, with it, her standing equal to any child born after the marriage.",
     "source": "Baptismal record annotation, Bild 7",
-    "flags": "Re-reviewed and confirmed against Clara's baptismal record annotation (transcription and translation on file); wording matches the primary source exactly.",
+    "flags": "Wording of the base sentence matches the primary source exactly. The explanation of why a separate rescript was legally necessary is informed general context about continental legitimation-by-subsequent-marriage in this period, not itself drawn from a cited Thuringian statute or legal-code text — presented as well-supported inference, not a sourced legal holding.",
     "images": []
   },
   {
