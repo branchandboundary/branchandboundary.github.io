@@ -220,6 +220,24 @@ html, body { height: 100%; margin: 0; overflow: hidden; }
   position: relative;
 }
 
+/* Docked beside the pin (desktop/tablet) instead of centered over everything */
+.modal-panel.is-docked {
+  position: fixed !important;
+  margin: 0 !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+
+.modal-stem {
+  position: fixed;
+  width: 0; height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  z-index: 901;
+  display: none;
+  filter: drop-shadow(-1px 0 1px rgba(0,0,0,0.15));
+}
+.modal-stem.is-visible { display: block; }
+
 .modal-close {
   position: absolute;
   top: 0.6rem; right: 0.7rem;
@@ -346,8 +364,20 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
 
 @media (max-width: 720px) {
   .sidepanel { width: 100%; height: 42vh; top: auto; bottom: 0; border-left: none; border-top: 1px solid var(--line); }
-  #map { bottom: 42vh; }
+  #map { bottom: 42vh; transition: bottom 0.2s ease; }
   .inset-panel { right: 12px; top: 12px; width: 140px; height: 100px; }
-  .modal { right: 0; bottom: 42vh; padding: 0; align-items: flex-end; }
-  .modal-panel { max-height: 92vh; border-radius: 8px 8px 0 0; }
+
+  /* Bottom sheet: map (with the active pin) stays visible above it, instead
+     of the sheet eating the whole screen. The persistent tab/event-list
+     sidebar tucks away only while a card is actually open, so the sheet
+     and the map don't have to fight the sidebar for the same space. */
+  .modal { right: 0; bottom: 0; padding: 0; align-items: flex-end; }
+  .modal-panel { max-height: 46vh; border-radius: 10px 10px 0 0; width: 100%; max-width: 100%; }
+  .modal-stem { display: none !important; }
+
+  body.modal-open-mobile .sidepanel { display: none; }
+  body.modal-open-mobile #map { bottom: 0; }
+
+  .legend-note { bottom: calc(42vh + 12px); max-width: calc(100vw - 28px); }
+  body.modal-open-mobile .legend-note { bottom: 12px; }
 }

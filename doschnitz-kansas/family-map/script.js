@@ -13,9 +13,11 @@
 
   // ---------------- Map setup ----------------
   const map = L.map("map", { zoomControl: true, attributionControl: true }).setView([42, -40], 3);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  window.__debugMap = map;
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
     maxZoom: 15,
-    attribution: "&copy; OpenStreetMap contributors"
+    subdomains: "abcd",
+    attribution: "&copy; OpenStreetMap contributors &copy; CARTO"
   }).addTo(map);
 
   // Opening-view orientation shading — real state/country outlines, modern
@@ -190,6 +192,113 @@
     animateJourney(origin, nextCard, () => goToIndex(nextIdx));
   }
 
+  let settleTimer = null;
+  function repositionWhenSettled(card) {
+    const handler = () => {
+      clearTimeout(settleTimer);
+      // Interrupting an in-progress flyTo (e.g. a tab switch's animation
+      // still finishing when a card opens) fires its own early moveend
+      // before the real target is reached — debounce so we act on the
+      // last one in a burst, not the first.
+      settleTimer = setTimeout(() => {
+        map.off("moveend", handler);
+        positionModal(card);
+      }, 80);
+    };
+    map.on("moveend", handler);
+  }
+
+  // ---------------- PLSS section-grid overlay (Site 1, Site 2, White Rock) ----------------
+  // No real PLSS shapefile is available offline, so the grid is constructed
+  // from standard survey geometry (1-mile-square sections, standard
+  // boustrophedon numbering) anchored to the BLM-verified coordinates
+  // already on file for these three tracts. This is an approximation for
+  // map placement, not a survey-grade claim -- same caveat the design doc
+  // already applies to the coordinates themselves.
+  const SECTION_ROWCOL = {
+    6:[1,1],5:[1,2],4:[1,3],3:[1,4],2:[1,5],1:[1,6],
+    7:[2,1],8:[2,2],9:[2,3],10:[2,4],11:[2,5],12:[2,6],
+    18:[3,1],17:[3,2],16:[3,3],15:[3,4],14:[3,5],13:[3,6],
+    19:[4,1],20:[4,2],21:[4,3],22:[4,4],23:[4,5],24:[4,6],
+    30:[5,1],29:[5,2],28:[5,3],27:[5,4],26:[5,5],25:[5,6],
+    31:[6,1],32:[6,2],33:[6,3],34:[6,4],35:[6,5],36:[6,6],
+  };
+
+  function buildTownship(refSectionNum, refSW) {
+    const [row, col] = SECTION_ROWCOL[refSectionNum];
+    const mileLat = 1 / 69.0;
+    const mileLng = 1 / (69.172 * Math.cos(refSW.lat * Math.PI / 180));
+    const twpNWlat = refSW.lat + row * mileLat;
+    const twpNWlng = refSW.lng - (col - 1) * mileLng;
+    const sections = {};
+    Object.keys(SECTION_ROWCOL).forEach(numStr => {
+      const num = +numStr;
+      const [r, c] = SECTION_ROWCOL[num];
+      const nwLat = twpNWlat - (r - 1) * mileLat;
+      const nwLng = twpNWlng + (c - 1) * mileLng;
+      const seLat = nwLat - mileLat;
+      const seLng = nwLng + mileLng;
+      sections[num] = { sw: [seLat, nwLng], ne: [nwLat, seLng], mileLat, mileLng };
+    });
+    return sections;
+  }
+
+  // Anchored to Site 2 (SW¼ Sec. 3) — Site 1 (Sec. 10) sits in the same township.
+  const websterTwp = buildTownship(3, { lat: 39.72987 - 0.25 / 69.0, lng: -98.55744 - 0.25 / (69.172 * Math.cos(39.73 * Math.PI/180)) });
+  // Anchored to White Rock (Sec. 36) — its own separate township.
+  const whiterockTwp = buildTownship(36, { lat: 39.83692 - 0.25 / 69.0, lng: -98.50954 - 0.25 / (69.172 * Math.cos(39.84 * Math.PI/180)) });
+
+  function quarterBounds(sec, quarter) {
+    const midLat = (sec.sw[0] + sec.ne[0]) / 2;
+    const midLng = (sec.sw[1] + sec.ne[1]) / 2;
+    if (quarter === "NE") return [[midLat, midLng], sec.ne];
+    if (quarter === "SW") return [sec.sw, [midLat, midLng]];
+    if (quarter === "halfNEhalfSE") {
+      // S½NE¼ and N½SE¼ combined (White Rock's actual legal description)
+      return [[sec.sw[0], midLng], sec.ne];
+    }
+    return [sec.sw, sec.ne];
+  }
+
+  let sectionGridLayer = L.layerGroup();
+  let secondaryGridLayer = L.layerGroup();
+  const plssCaveatEl = document.getElementById("plss-caveat");
+
+  function drawSectionGrid(layer, twp, highlightNum, quarter) {
+    layer.clearLayers();
+    Object.keys(twp).forEach(numStr => {
+      const num = +numStr;
+      const sec = twp[num];
+      const isHighlight = num === highlightNum;
+      L.rectangle([sec.sw, sec.ne], {
+        color: isHighlight ? "#9C4B33" : "#8A7A55",
+        weight: isHighlight ? 2 : 0.8,
+        fillOpacity: 0,
+        opacity: isHighlight ? 0.9 : 0.45,
+        interactive: false
+      }).addTo(layer);
+    });
+    if (highlightNum && twp[highlightNum]) {
+      L.rectangle(quarterBounds(twp[highlightNum], quarter), {
+        color: "#9C4B33", weight: 1.5, fillOpacity: 0.22, fillColor: "#9C4B33", interactive: false
+      }).addTo(layer);
+    }
+    layer.addTo(map);
+    if (plssCaveatEl) plssCaveatEl.classList.add("is-visible");
+  }
+  function hideSectionGrid(layer) {
+    layer.clearLayers();
+    if (!sectionGridLayer.getLayers().length && !secondaryGridLayer.getLayers().length && plssCaveatEl) {
+      plssCaveatEl.classList.remove("is-visible");
+    }
+  }
+
+  function plssTargetForCard(card) {
+    if (card.id === "B8") return { twp: websterTwp, section: 10, quarter: "NE", zoom: 13.4 };
+    if (card.site === "site2") return { twp: websterTwp, section: 3, quarter: "SW", zoom: 13.4 };
+    return null;
+  }
+
   function goToIndex(i) {
     currentIndex = i;
     const card = byBranch[currentBranch][i];
@@ -199,6 +308,8 @@
     clearSecondary();
     if (card.secondaryPin) showSecondary(card.secondaryPin);
     openModal(card);
+    positionModal(card);
+    repositionWhenSettled(card);
   }
 
   function moveMapFor(card) {
@@ -207,7 +318,15 @@
       return;
     }
     hideInset();
-    if (card.countyZoom) {
+    const plss = plssTargetForCard(card);
+    if (!plss) hideSectionGrid(sectionGridLayer);
+
+    if (plss) {
+      countyLocked[currentBranch] = true;
+      if (card.countyZoom) showLegend("Zoomed to Smith County, Kansas — includes Kirwin and Smith Centre for context.");
+      map.flyTo([card.lat, card.lng], plss.zoom, { duration: 1.1 });
+      drawSectionGrid(sectionGridLayer, plss.twp, plss.section, plss.quarter);
+    } else if (card.countyZoom) {
       countyLocked[currentBranch] = true;
       map.flyTo([39.745, -98.63], 10.1, { duration: 1.3 });
       showLegend("Zoomed to Smith County, Kansas — includes Kirwin and Smith Centre for context.");
@@ -226,9 +345,15 @@
     secondaryLayer = L.marker([sp.lat, sp.lng], { icon: secondaryIcon() })
       .bindTooltip(sp.name, { permanent: true, direction: "right", className: "pin-label", offset: [8,0] })
       .addTo(map);
+    // White Rock's secondary pin also gets the section-grid treatment,
+    // per its own township (T2S R11W, separate from Webster Township).
+    if (Math.abs(sp.lat - 39.83692) < 0.001 && Math.abs(sp.lng - (-98.50954)) < 0.001) {
+      drawSectionGrid(secondaryGridLayer, whiterockTwp, 36, "halfNEhalfSE");
+    }
   }
   function clearSecondary() {
     if (secondaryLayer) { map.removeLayer(secondaryLayer); secondaryLayer = null; }
+    hideSectionGrid(secondaryGridLayer);
   }
 
   function showInset(card) {
@@ -236,7 +361,7 @@
     insetPanelEl.setAttribute("aria-hidden", "false");
     if (!insetMap) {
       insetMap = L.map("inset-map", { zoomControl:false, attributionControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, boxZoom:false, keyboard:false });
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 9 }).addTo(insetMap);
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", { maxZoom: 9, subdomains: "abcd" }).addTo(insetMap);
     }
     insetMap.setView([card.lat, card.lng], 5);
     setTimeout(() => insetMap.invalidateSize(), 260);
@@ -351,6 +476,105 @@
     journeyRAF = requestAnimationFrame(step);
   }
 
+  const modalPanelEl = document.querySelector(".modal-panel");
+  const modalStemEl = document.getElementById("modal-stem");
+  const MOBILE_QUERY = "(max-width: 720px)";
+
+  function positionModal(card) {
+    const isMobile = window.matchMedia(MOBILE_QUERY).matches;
+    document.body.classList.toggle("modal-open-mobile", isMobile);
+
+    if (isMobile || card.insetOnly) {
+      modalPanelEl.classList.remove("is-docked");
+      modalPanelEl.style.left = modalPanelEl.style.top = modalPanelEl.style.width = "";
+      modalStemEl.classList.remove("is-visible");
+      return;
+    }
+
+    const pt = map.latLngToContainerPoint([card.lat, card.lng]);
+    const sidebarWidth = Math.min(360, window.innerWidth * 0.92);
+    const usableRight = window.innerWidth - sidebarWidth;
+    const gap = 26;
+    const margin = 12;
+    const panelWidth = Math.min(420, window.innerWidth * 0.4, usableRight - margin * 2);
+    const estHeight = Math.min(window.innerHeight * 0.8, 560);
+
+    const roomRight = usableRight - margin - (pt.x + gap);
+    const roomLeft = (pt.x - gap) - margin;
+    let left, top, stemSide;
+
+    if (roomRight >= panelWidth) {
+      left = pt.x + gap;
+      stemSide = "right";
+      top = Math.max(16, Math.min(pt.y - estHeight * 0.4, window.innerHeight - estHeight - 16));
+    } else if (roomLeft >= panelWidth) {
+      left = pt.x - gap - panelWidth;
+      stemSide = "left";
+      top = Math.max(16, Math.min(pt.y - estHeight * 0.4, window.innerHeight - estHeight - 16));
+    } else {
+      // Neither side has room without landing back on top of the pin —
+      // dock above or below it instead, centered horizontally within the
+      // usable (non-sidebar) width.
+      left = Math.max(margin, Math.min((usableRight - panelWidth) / 2, usableRight - panelWidth - margin));
+      const roomBelow = window.innerHeight - margin - (pt.y + gap);
+      if (roomBelow >= estHeight) {
+        top = pt.y + gap;
+        stemSide = "top";
+      } else {
+        top = Math.max(margin, pt.y - gap - estHeight);
+        stemSide = "bottom";
+      }
+    }
+
+    modalPanelEl.classList.add("is-docked");
+    modalPanelEl.style.left = left + "px";
+    modalPanelEl.style.top = top + "px";
+    modalPanelEl.style.width = panelWidth + "px";
+
+    modalStemEl.style.borderLeft = modalStemEl.style.borderRight = modalStemEl.style.borderTop = modalStemEl.style.borderBottom = "none";
+    if (stemSide === "right") {
+      modalStemEl.style.left = (left - 9) + "px";
+      modalStemEl.style.top = Math.max(top + 24, Math.min(pt.y, top + estHeight - 24)) + "px";
+      modalStemEl.style.borderTop = "9px solid transparent";
+      modalStemEl.style.borderBottom = "9px solid transparent";
+      modalStemEl.style.borderRight = "9px solid var(--white-ish)";
+    } else if (stemSide === "left") {
+      modalStemEl.style.left = (left + panelWidth) + "px";
+      modalStemEl.style.top = Math.max(top + 24, Math.min(pt.y, top + estHeight - 24)) + "px";
+      modalStemEl.style.borderTop = "9px solid transparent";
+      modalStemEl.style.borderBottom = "9px solid transparent";
+      modalStemEl.style.borderLeft = "9px solid var(--white-ish)";
+    } else if (stemSide === "top") {
+      modalStemEl.style.top = (top - 9) + "px";
+      modalStemEl.style.left = Math.max(left + 24, Math.min(pt.x, left + panelWidth - 24)) + "px";
+      modalStemEl.style.borderLeft = "9px solid transparent";
+      modalStemEl.style.borderRight = "9px solid transparent";
+      modalStemEl.style.borderBottom = "9px solid var(--white-ish)";
+    } else {
+      modalStemEl.style.top = (top + estHeight) + "px";
+      modalStemEl.style.left = Math.max(left + 24, Math.min(pt.x, left + panelWidth - 24)) + "px";
+      modalStemEl.style.borderLeft = "9px solid transparent";
+      modalStemEl.style.borderRight = "9px solid transparent";
+      modalStemEl.style.borderTop = "9px solid var(--white-ish)";
+    }
+    modalStemEl.classList.add("is-visible");
+
+    // The height above is an estimate made before the card's actual content
+    // is laid out — longer cards can run taller than guessed. Re-measure
+    // after render and nudge back on-screen if it overflowed the bottom.
+    requestAnimationFrame(() => {
+      const rect = modalPanelEl.getBoundingClientRect();
+      const overflow = rect.bottom - (window.innerHeight - 16);
+      if (overflow > 0) {
+        const newTop = Math.max(16, rect.top - overflow);
+        modalPanelEl.style.top = newTop + "px";
+        if (stemSide === "right" || stemSide === "left") {
+          modalStemEl.style.top = Math.max(newTop + 24, Math.min(pt.y, newTop + rect.height - 24)) + "px";
+        }
+      }
+    });
+  }
+
   // ---------------- Modal rendering ----------------
   let carouselIndex = 0;
   function openModal(card) {
@@ -383,7 +607,11 @@
     modal.setHandlers({
       next: () => { if (idx < byBranch[currentBranch].length - 1) attemptAdvance(idx); },
       back: () => { if (idx > 0) goToIndex(idx - 1); },
-      onClose: () => { clearSecondary(); hideInset(); renderMarkers(); }
+      onClose: () => {
+        clearSecondary(); hideInset(); renderMarkers();
+        modalStemEl.classList.remove("is-visible");
+        document.body.classList.remove("modal-open-mobile");
+      }
     });
     modal.open();
     MapCore.initCrossRefPopovers(descEl, (targetBranch) => selectBranch(targetBranch));
