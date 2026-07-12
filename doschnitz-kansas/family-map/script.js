@@ -767,10 +767,7 @@
     // scroll position carried over from a previous card could land a
     // freshly-opened card mid-paragraph.
     scrollEl.scrollTop = 0;
-    requestAnimationFrame(() => {
-      const overflowing = scrollEl.scrollHeight > scrollEl.clientHeight + 2;
-      scrollEl.classList.toggle("has-overflow", overflowing);
-    });
+    requestAnimationFrame(updateScrollFade);
 
     modal.setHandlers({
       next: () => { if (idx < byBranch[currentBranch].length - 1) attemptAdvance(idx); },
@@ -822,6 +819,12 @@
     return html;
   }
 
+  function updateScrollFade() {
+    const scrollEl = document.querySelector(".modal-scroll");
+    const overflowing = scrollEl.scrollHeight > scrollEl.clientHeight + 2;
+    scrollEl.classList.toggle("has-overflow", overflowing);
+  }
+
   function renderCarousel(card) {
     const el = document.getElementById("modal-carousel");
     if (!card.images || !card.images.length) { el.innerHTML = ""; return; }
@@ -835,6 +838,17 @@
     if (card.images.length > 1) {
       el.querySelector(".carousel-prev").addEventListener("click", () => { carouselIndex = (carouselIndex - 1 + card.images.length) % card.images.length; renderCarousel(card); });
       el.querySelector(".carousel-next").addEventListener("click", () => { carouselIndex = (carouselIndex + 1) % card.images.length; renderCarousel(card); });
+    }
+    // The scroll-fade hint's overflow check (run once right after this card
+    // opens) measures the container's height too early if it runs before
+    // this image has actually loaded -- an unloaded image contributes ~0 to
+    // scrollHeight, so a card that only overflows *because of* its image
+    // could wrongly be judged as fitting. Re-check once the image is
+    // actually in the layout, not just once the tag exists in the DOM.
+    const imgEl = el.querySelector("img");
+    if (imgEl) {
+      if (imgEl.complete) updateScrollFade();
+      else imgEl.addEventListener("load", updateScrollFade, { once: true });
     }
   }
 
