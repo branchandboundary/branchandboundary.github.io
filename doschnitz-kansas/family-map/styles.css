@@ -491,6 +491,18 @@ body.journey-active .back-link { pointer-events: none; opacity: 0.55; transition
   .inset-panel { right: 12px; top: 12px; width: 140px; height: 100px; }
   .ottomar-photo-panel { right: 12px; top: 12px; width: 96px; height: 120px; }
 
+  /* Once a branch is actually chosen, the title/intro and the two inactive
+     tab buttons step aside so the active accordion gets the full ~42vh
+     sidepanel instead of splitting it three (or five) ways. Tapping a name
+     to go "back" (via collapseAccordion) brings all of this back. */
+  .sidepanel.branch-chosen .site-title,
+  .sidepanel.branch-chosen .site-sub {
+    display: none;
+  }
+  .sidepanel.branch-chosen .tab-group:not(.is-active) {
+    display: none;
+  }
+
   /* Bottom sheet: map (with the active pin) stays visible above it, instead
      of the sheet eating the whole screen. The persistent tab/event-list
      sidebar tucks away only while a card is actually open, so the sheet

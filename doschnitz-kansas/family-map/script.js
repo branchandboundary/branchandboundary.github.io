@@ -93,9 +93,19 @@
   const legendNoteEl = document.getElementById("legend-note");
   const insetPanelEl = document.getElementById("inset-panel");
   const ottomarPhotoEl = document.getElementById("ottomar-photo-panel");
+  const sidepanelEl = document.getElementById("sidepanel");
 
   document.querySelectorAll(".tab").forEach(btn => {
-    btn.addEventListener("click", () => selectBranch(btn.dataset.branch));
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("is-active")) {
+        // Tapping the already-open name again closes it back up -- the
+        // only way to reach the other two names on mobile, since they're
+        // hidden while a branch is chosen (see branch-chosen CSS).
+        collapseAccordion();
+      } else {
+        selectBranch(btn.dataset.branch);
+      }
+    });
   });
 
   // Every bounds-fitting map move (fitBounds/flyToBounds) needs to reserve
@@ -129,6 +139,15 @@
     document.querySelectorAll(".tab-group").forEach(g => {
       g.classList.toggle("is-active", g.dataset.branch === branch);
     });
+    // On a short mobile viewport, the title/intro text and the two inactive
+    // tab buttons were all still competing for the same ~42vh sidepanel
+    // space as the active accordion, squeezing its event list down to
+    // almost nothing (a few px tall, its items rendered off-screen with no
+    // way to reach them). This class lets mobile CSS hide everything but
+    // the active tab once a branch is actually chosen, matching the room
+    // desktop always had. No effect on desktop, which has full-height room
+    // for all of this at once.
+    sidepanelEl.classList.add("branch-chosen");
     renderEventList();
     renderMarkers();
     hideInset();
@@ -173,6 +192,7 @@
       b.setAttribute("aria-selected", "false");
       b.setAttribute("aria-expanded", "false");
     });
+    sidepanelEl.classList.remove("branch-chosen");
   }
 
   const DOC = "../shared/documents/";
